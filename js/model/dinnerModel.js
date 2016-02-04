@@ -10,7 +10,7 @@ var DinnerModel = function() {
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 2
 		if (num > 0) {
-			this.numberOfGuests = num;
+			numberOfGuests = num;
 		}
 	}
 
@@ -24,7 +24,7 @@ var DinnerModel = function() {
 	this.getSelectedDish = function(type) {
 		//TODO Lab 2
 
-		return this.getDish(this.dishes[type]);
+		return this.getDish(dishes[type]);			// Don't know if this works, just a guess?
 	}
 
 	//Returns all the dishes on the menu.
