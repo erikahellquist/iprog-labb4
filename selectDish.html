@@ -13,18 +13,29 @@
   </head>
   <body>
 
-		<div class="container">
-		<h1>Dinner planner</h1>
-		<div id="exampleView">
-			<div>
-				Number of guests: <span id="numberOfGuests"></span>
-			</div>
-			<div>
-          <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+	<div class="container-fluid">
+		<div class="row"><div class="logotypeGrid">
+			<font size="8">HOMELETTE</font> <i>From the best chefs in the world directly into your kitchen</i>
+		</div></div>
+		<div class="row">
+			<div class="col-md-2" id="exampleView"><div class="leftMenuGrid">
+				<h4>My dinner</h4>
+				<div>
+					Number of guests: <span id="numberOfGuests"></span>
+				</div>
+				<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
 				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+			</div></div>
+
+			<div class="col-md-10"><div class="topMenuGrid">
+				<div class="row"><h4>Select dish</h4> <hr></div></div>
+
+				<div class="row">recept etc<div>
+
 			</div>
 		</div>
 	</div>
+
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>

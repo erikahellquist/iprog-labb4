@@ -4,6 +4,14 @@ h4 {
 	color: blue;
 }
 
-.logotypebar {
-	background-color: rgb(220,220,220);
+.logotypeGrid {
+	background-color: rgb(239,239,239);
+}
+
+.leftMenuGrid {
+	background-color: rgb(239,239,239);
+}
+
+.topMenuGrid {
+	background-color: rgb(255,233,148);
 }
