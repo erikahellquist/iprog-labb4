@@ -1,5 +1,5 @@
 //ExampleView Object constructor
-var StartView = function (container, model) {
+var SideWindowView = function (container, model) {
 	
 	// Get all the relevant elements of the view (ones that show data
   	// and/or ones that responed to interaction)
@@ -7,7 +7,8 @@ var StartView = function (container, model) {
 	this.plusButton = container.find("#plusGuest");
 	this.minusButton = container.find("#minusGuest");
 	
-	this.numberOfGuests.html(model.getNumberOfGuests);
+	this.numberOfGuests.html(model.getNumberOfGuests());
+
 	
 }
  
