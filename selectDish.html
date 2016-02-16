@@ -34,25 +34,27 @@
 						<br>
 						<div class="row">
 							<div class="col-md-12" id="mini">
-							<h5>Dish Name, Cost:</h5>
+							<b><span class='left'>Dish Name</span> <span class='right'>Cost</span></b>
 
 							</div>
 						</div>
 
 						<div class="row">
-							<div class="col-md-12">
+							<div class="col-md-12" >
 								<br>
 								<span class='left' id="starter"></span>
-								<span class='right price'><span id="starterPrice"></span> SEK</span>
+								<span class='right price'><span id="starterPrice"></span></span>
 								<br>
 								<span class='left' id="main"></span>
-								<span class='right price'><span id="mainPrice"></span> SEK</span>
+								<span class='right price'><span id="mainPrice"></span></span>
 								<br>
 								<span class='left' id="dessert"></span>
-								<span class='right price'><span id="dessertPrice"></span> SEK</span><br>
-								<br>
+								<span class='right price'><span id="dessertPrice"></span></span><br>
 								<hr>
-								<span class='right price'><span id="totalPrice"></span> SEK</span><br>
+								<span class='right price'>SEK <span id="totalPrice"></span></span><br><br>
+
+						<a href="dinnerOverview.html"><button type="button" class="btn-default btn-block">Confirm dinner</button></a>
+						<br>
 						</div></div>
 					</div>
 				</div>
@@ -65,12 +67,22 @@
 					<div class="col-md-12" id="searchBar">
 						<h4>Select dish</h4> <hr>
 
-						<div class="col-md-4">Search</div>
+						<div class="col-md-4">
+							<div class="input-group">
+      						<input type="text" class="form-control" placeholder="Enter key words">
+      						<span class="input-group-btn">
+        					<button class="btn btn-default" type="button">Search</button>
+      						</span>
+    						</div>
+
+
+
+						</div>
 						<div class="col-md-4">
 
 						<div class="dropdown">
 							<button class="btn-drop dropdown-toggle" type="button" id="dropdownDish" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    						Select course<span class="caret"></span>
+    						<span class='left'>Select course</span><span class='right'><span class="caret"></span></span>
   							</button>
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenu">
 								<li><a href="#">Starter</a></li>
