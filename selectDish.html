@@ -42,10 +42,17 @@
 						<div class="row">
 							<div class="col-md-12">
 								<br>
-								<span id="starter"></span><br>
-								<span id="main"></span><br>
-								<span id="dessert"></span><br>
+								<span class='left' id="starter"></span>
+								<span class='right price'><span id="starterPrice"></span> SEK</span>
 								<br>
+								<span class='left' id="main"></span>
+								<span class='right price'><span id="mainPrice"></span> SEK</span>
+								<br>
+								<span class='left' id="dessert"></span>
+								<span class='right price'><span id="dessertPrice"></span> SEK</span><br>
+								<br>
+								<hr>
+								<span class='right price'><span id="totalPrice"></span> SEK</span><br>
 						</div></div>
 					</div>
 				</div>
@@ -56,8 +63,24 @@
 
 				<div class="row">
 					<div class="col-md-12" id="searchBar">
-						<h4>Select dish</h4> <hr />
-						Search
+						<h4>Select dish</h4> <hr>
+
+						<div class="col-md-4">Search</div>
+						<div class="col-md-4">
+
+						<div class="dropdown">
+							<button class="btn-drop dropdown-toggle" type="button" id="dropdownDish" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    						Select course<span class="caret"></span>
+  							</button>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+								<li><a href="#">Starter</a></li>
+							    <li><a href="#">Main dish</a></li>
+							    <li><a href="#">Starter</a></li>
+							</ul>
+							</div></span>
+
+						</div>
+						<div class="col-md-4"></div>
 
 					</div>
 				</div>
@@ -96,6 +119,8 @@
 	<script src="js/view/sideWindowView.js"></script>
 	<script src="js/view/selectDishView.js"></script>
 	<script src="js/view/recipeView.js"></script>
+	<script src="js/view/dinnerView.js"></script>
+
 	<!--<script src="js/view/exampleViewController.js"></script>  Är detta något som används????? -->
   </body>
 </html>
