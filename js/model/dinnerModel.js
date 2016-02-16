@@ -24,7 +24,6 @@ var DinnerModel = function() {
 	}
 
 	this.setNumberOfGuests = function(num) {
-		//TODO Lab 2
 		if (num > 0) {
 			numberOfGuests = num;
 		}
@@ -78,12 +77,28 @@ var DinnerModel = function() {
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		//TODO Lab 2 
+		var dish = this.getDish(id);
+
+		if (dish.type == "starter") {
+			menu[0] = dish.id;
+		}
+			
+		else if (dish.type == "main") {
+			menu[1] = dish.id;
+		}
+			
+		else if (dish.type == "dessert") {
+			menu[2] = dish.id;
+		}
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		//TODO Lab 2
+		for (d in menu) {
+			if (id == menu[d]) {
+				menu.splice(d, 1);
+			}
+		}
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
