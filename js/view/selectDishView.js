@@ -8,26 +8,50 @@ var SelectDishView = function (container, model) {
 	//this.numberOfGuests.html(model.getNumberOfGuests());
 
 	this.allDishes = container.find("#mainWindow");
-
-
-
-	this.tryOneDish = container.find("#tryOneDish");
-	this.tryOneDish.html(model.getDish(100).name);
-	
 	
 
-	//var dishList = ""
-	//var list = model.getSelectedDish("starter");
 
-	//for (i = 0; i < 1; i++) {
-	//dish = list[i]
-	//dishList = dishList + dish.name
-	
-	//dishList = dishList + "<br>"
-	//dishList = dishList + model.dishes[0].id
-	//}
-	
-	this.allDishes.html(model.getDish(model.getSelectedDish(starter)));
+	var dishList = ""
+	var list = model.getMainDishes();
 
+
+	for (i = 0; i < list.length; i++) {
+		dish = list[i]
+		dishList = dishList + "<div class='col-md-3' id='dish'>"
+		dishList = dishList + "<img src='images/" + dish.image + "'></img><br>"
+		dishList = dishList + dish.name
+		dishList = dishList + "<br>"
+		dishList = dishList + dish.description
+		dishList = dishList + "<br></div>"
+	}
+
+//	dishList = dishList + "</div>"
+
+	this.allDishes.html(dishList);
+
+
+
+	/*var dishList = "<table><tr>"
+	var list = model.getMainDishes();
+
+
+	for (i = 0; i < list.length; i++) {
+		dish = list[i]
+		if (i % 5 == 0 ) {
+			dishList = dishList + "</tr><tr>"
+		}
+			dishList = dishList + "<td><img src='images/" + dish.image + "'></img><br>"
+			dishList = dishList + dish.name
+			dishList = dishList + "<br>"
+			dishList = dishList + dish.description
+			dishList = dishList + "<br></td>"	
+	}
+
+	dishList = dishList + "</tr></table>"
+
+	this.allDishes.html(dishList);
+	
+	//this.allDishes.html(model.getDish(model.getSelectedDish(starter)));
+*/
 }
  

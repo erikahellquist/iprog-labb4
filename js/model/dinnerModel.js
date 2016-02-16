@@ -120,6 +120,36 @@ var DinnerModel = function() {
 		return dishes;
 	}
 
+	this.getMainDishes = function() {
+		var list = [];
+		for(key in dishes){
+			if (dishes[key].type == "main dish") {
+				list.push(dishes[key]);
+			}
+		}
+		return list
+	}
+
+	this.getStarters = function() {
+		var list = [];
+		for(key in dishes){
+			if (dishes[key].type == "starter") {
+				list.push(dishes[key]);
+			}
+		}
+		return list
+	}
+
+	this.getDesserts = function() {
+		var list = [];
+		for(key in dishes){
+			if (dishes[key].type == "dessert") {
+				list.push(dishes[key]);
+			}
+		}
+		return list
+	}
+
 
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,
