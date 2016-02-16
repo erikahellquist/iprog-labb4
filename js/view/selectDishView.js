@@ -18,8 +18,10 @@ var SelectDishView = function (container, model) {
 	for (i = 0; i < list.length; i++) {
 		dish = list[i]
 		dishList = dishList + "<div class='col-md-3' id='dish'>"
-		dishList = dishList + "<img src='images/" + dish.image + "'></img><br>"
-		dishList = dishList + "<h4><span class='title'>" + dish.name + "</span></h4>"
+		dishList = dishList + "<img src='images/" + dish.image + "'></img>"
+		dishList = dishList + "<a href='recipeView.html'>"
+		dishList = dishList + "<span class='title'><h4>" + dish.name + "</h4></span>"
+		dishList = dishList + "</a>"
 		dishList = dishList + "<span class='description'>" + dish.description + "</span>"
 		dishList = dishList + "<br></div>"
 	}
