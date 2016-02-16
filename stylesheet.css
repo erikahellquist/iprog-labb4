@@ -35,8 +35,8 @@ hr {
 }
 
 .center {
-	text-align:center;
-	display:inline;
+	/*text-align:center;*/
+	display:inline-block;
 }
 
 .btn-default, .btn-default:hover {
@@ -71,15 +71,37 @@ html, body, .container-fluid {
 	height: 100%;
 }
 
+#dish {
+	vertical-align: top;
+    display: inline-block;
+    text-align: center;
+}
+
 #dish img {
-	height: 140 px;
-	width: 140 px;
+	height: 200px;
+	width: 200px;
+	border:solid;
+	border-width: 4px;
+	border-color:black;
+}
+
+#dish .title {
+	color:black;
+	display:block;
+}
+
+#dish .description {
+	color:black;
+	text-align:left;
+	display:block;
 }
 
 #mini {
 	border-style: solid;
-	border-width: 1px;
+	border-width: 2px;
 	border-color: black;
+	border-left: none;
+	border-right:none;
 	background-color: rgb(222,222,222);
 	padding-left:10px;
 	padding-right:10px;

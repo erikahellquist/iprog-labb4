@@ -11,7 +11,7 @@ var SelectDishView = function (container, model) {
 	
 
 
-	var dishList = ""
+	var dishList = "<br><br><br>"
 	var list = model.getMainDishes();
 
 
@@ -19,9 +19,8 @@ var SelectDishView = function (container, model) {
 		dish = list[i]
 		dishList = dishList + "<div class='col-md-3' id='dish'>"
 		dishList = dishList + "<img src='images/" + dish.image + "'></img><br>"
-		dishList = dishList + dish.name
-		dishList = dishList + "<br>"
-		dishList = dishList + dish.description
+		dishList = dishList + "<h4><span class='title'>" + dish.name + "</span></h4>"
+		dishList = dishList + "<span class='description'>" + dish.description + "</span>"
 		dishList = dishList + "<br></div>"
 	}
 
