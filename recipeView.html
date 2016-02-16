@@ -26,11 +26,39 @@
 		<div class="row">
 			<div class="col-md-2" id="sideWindowView">
 				<h4>My dinner</h4>
-				<div>
-					Number of guests: <span id="numberOfGuests"></span>
+				<div class="row">
+					<div class="col-md-12">
+						People: <span id="numberOfGuests"></span><br>
+						<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+						<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button><br>
+						<br>
+						<div class="row">
+							<div class="col-md-12" id="mini">
+							<b><span class='left'>Dish Name</span> <span class='right'>Cost</span></b>
+
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12" >
+								<br>
+								<span class='left' id="starter"></span>
+								<span class='right price'><span id="starterPrice"></span></span>
+								<br>
+								<span class='left' id="main"></span>
+								<span class='right price'><span id="mainPrice"></span></span>
+								<br>
+								<span class='left' id="dessert"></span>
+								<span class='right price'><span id="dessertPrice"></span></span><br>
+								<hr>
+								<span class='right price'>SEK <span id="totalPrice"></span></span><br><br>
+
+						<a href="dinnerOverview.html"><button type="button" class="btn-default btn-block">Confirm dinner</button></a>
+						<br>
+						</div></div>
+					</div>
 				</div>
-				<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+				
 			</div>
 
 			<div class="col-md-10" id="recipeView">
