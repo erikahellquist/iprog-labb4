@@ -22,7 +22,10 @@ var RecipeView = function (container, model) {
 	dishDisc = dishDisc + "<br>"
 	
 	this.leftSide.html(dishDisc)
+
 	
+	
+	//Creating the html for the top right side of the screen
 	this.rightSide = container.find("#rightHalf")
 	
 	dishDisc = "<h3> INGREDIENTS FOR " + model.getNumberOfGuests()+ " PEOPLE</h3>"
@@ -40,9 +43,13 @@ var RecipeView = function (container, model) {
 	dishDisc = dishDisc + "<hr>"
 	dishDisc = dishDisc + "              SEK : " + totalpris
 	
-	
-	
 	this.rightSide.html(dishDisc)
+	
+	this.lower = container.find("#lowerHalf")
+	dishDisc = "<h2> Preparation </h2><br>"
+	dishDisc = dishDisc + dish.description
+	
+	this.lower.html(dishDisc)
 	
 	
 	
