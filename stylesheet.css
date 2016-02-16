@@ -89,12 +89,7 @@ html, body, .container-fluid {
 	border-width: 4px;
 	border-color:black;
 }
-#rightHalf {
-	background-color: rgb(254,177,96);
-	border-style: solid;
-	border-width: 2px;
-	border-color: black;
-}
+
 #dish .title {
 	color:black;
 	display:block;
