@@ -7,8 +7,6 @@ var SelectDishView = function (container, model) {
 	//this.numberOfGuests = container.find("#numberOfGuests");
 	//this.numberOfGuests.html(model.getNumberOfGuests());
 
-
-
 	this.allDishes = container.find("#mainWindow");
 
 
@@ -17,12 +15,6 @@ var SelectDishView = function (container, model) {
 	this.tryOneDish.html(model.getDish(100).name);
 	
 	
-
-	
-	
-
-	
-
 
 	//var dishList = ""
 	//var list = model.getSelectedDish("starter");
@@ -35,7 +27,7 @@ var SelectDishView = function (container, model) {
 	//dishList = dishList + model.dishes[0].id
 	//}
 	
-	this.allDishes.html(model.getSelectedDish(starter).name);
+	this.allDishes.html(model.getDish(model.getSelectedDish(starter)));
 
 }
  

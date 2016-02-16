@@ -13,6 +13,7 @@ html, body, .container-fluid {
 }
 
 
+
 #header {
 	
 	background-color: rgb(239,239,239);
@@ -49,26 +50,27 @@ html, body, .container-fluid {
 	border-width: 2px;
 	border-color: black;
 	padding: 20px;
-
-	
-
 }
 
 
-
-
-
 #sideWindowView {
-	background-color: rgb(239,239,239);
+	background-color: rgb(255,255,255);
 
 	border-style: solid;
 	border-width: 2px;
 	border-color: black;
 
-	min-height: 500px;	/* får den inte att bli helskärm just nu */
-	height: 500px;
+	/*min-height: 500px;	/* får den inte att bli helskärm just nu */
+	height: 500px;*/
 }
 
+#mini {
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+	background-color: rgb(222,222,222);
+
+}
 
 #searchBar {
 	background-color: rgb(255,233,148);
