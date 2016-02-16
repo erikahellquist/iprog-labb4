@@ -5,6 +5,7 @@ var DinnerModel = function() {
 	// and selected dinner options for dinner menu
 	var numberOfGuests = 0;
 	var numberOfDishes = 0;
+	var selectedDishId = 1;
 	var menu = [];
 
 	this._observers = [];
@@ -34,6 +35,12 @@ var DinnerModel = function() {
 	this.getNumberOfGuests = function() {
 		//TODO Lab 2
 		return numberOfGuests;
+	}
+	
+	// should return 
+	this.getSelectedDishId = function() {
+		//TODO Lab 2
+		return selectedDishId;
 	}
 
 	//Returns the dish that is on the menu for selected type 
