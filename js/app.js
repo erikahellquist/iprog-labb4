@@ -7,13 +7,7 @@ $(function() {
 	var sideWindowView = new SideWindowView($("#sideWindowView"), model);
 	var selectDishView = new SelectDishView($("#selectDishView"), model);
 	var recipeView = new RecipeView($("#recipeView"), model);
-
-
-	/*var startView = new StartView($("#startView"), model);
-	
-	var dishOverviewView = new DishOverviewView($("#dishOverviewView"), model);
-	var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverviewView"), model);
-	var dinnerPreparationView = new DinnerPreparationView($("#dinnerPreparationView"), model);*/
+	var dinnerView = new DinnerView($("#dinnerView"), model);
 
 
 });

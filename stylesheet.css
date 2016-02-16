@@ -4,6 +4,20 @@ h4 {
 	color: black;
 }
 
+h2 {
+	color: black;
+	font-size: 30px;
+}
+
+h1 {
+	color: black;
+	font-size: 40px;
+}
+
+.price {
+	color: darkred;
+}
+
 
 html, body, .container-fluid {
 	height: 100%;
@@ -37,14 +51,13 @@ html, body, .container-fluid {
 	
 	background-color: rgba(255,233,148, 0.3);
 	height: 100px;
-
 	border-style: solid;
 	border-width: 2px;
 	border-color: black;
 	padding: 20px;
 }
 
-#homePage {					/* Jag får inte detta att funka? */
+#homePage {					
 	min-height: 100%;
 	height: 100%;
 	background-color: rgb(239,239,239);
@@ -53,7 +66,6 @@ html, body, .container-fluid {
 	background-repeat: no-repeat;
 	background-size:cover;
 	display: block;*/
-	color: green;
 	border-style: solid;
 	border-width: 2px;
 	border-color: black;
@@ -68,7 +80,7 @@ html, body, .container-fluid {
 	border-width: 2px;
 	border-color: black;
 
-	min-height: 100%;	/* får den inte att bli helskärm just nu */
+	min-height: 100%;	
 	height: 100%;
 }
 
@@ -80,6 +92,15 @@ html, body, .container-fluid {
 	border-width: 2px;
 	border-color: black;
 	height: 150px;
+}
+
+#dinnerBar {
+	background-color: rgb(255,233,148);
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+	height: 100px;
+	padding-left: 2cm;
 }
 
 #mainWindow {

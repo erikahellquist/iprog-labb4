@@ -27,7 +27,7 @@ var SelectDishView = function (container, model) {
 
 //	dishList = dishList + "</div>"
 
-	this.allDishes.html(dishList);
+	this.allDishes.html(dishList);                                        
 
 
 

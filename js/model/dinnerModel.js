@@ -23,7 +23,6 @@ var DinnerModel = function() {
 
 	}
 
-
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 2
 		if (num > 0) {
@@ -60,7 +59,6 @@ var DinnerModel = function() {
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		//TODO Lab 2
 		return menu;
 	}
 
@@ -115,6 +113,30 @@ var DinnerModel = function() {
 			}
 		}
 	}
+
+	//function that returns a price of specific dish with ID
+	this.getDishPrice = function (id) {
+		var price = 0;
+	  	for(key in dishes){
+			if(dishes[key].id == id) {
+				for (no in dishes[key].ingredients) {
+					price = price + dishes[key].ingredients[no].price;
+				}
+				return price;
+			}
+		}
+	}
+
+
+	this.getDishGuestPrice = function (id) {
+		var price = this.getDishPrice(id);
+
+		price = price * numberOfGuests;
+
+		return price;
+	}
+
+
 
 	this.getDishes = function() {
 		return dishes;
