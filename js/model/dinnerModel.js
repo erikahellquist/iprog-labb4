@@ -30,9 +30,8 @@ var DinnerModel = function() {
 		}
 	}
 
-	// should return 
 	this.getNumberOfGuests = function() {
-		//TODO Lab 2
+
 		return numberOfGuests;
 	}
 
@@ -102,6 +101,10 @@ var DinnerModel = function() {
 				return dishes[key];
 			}
 		}
+	}
+
+	this.getDishes = function() {
+		return dishes;
 	}
 
 
