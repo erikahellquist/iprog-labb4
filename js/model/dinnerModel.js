@@ -5,7 +5,23 @@ var DinnerModel = function() {
 	// and selected dinner options for dinner menu
 	var numberOfGuests = 0;
 	var numberOfDishes = 0;
-	var dishes = [];
+	var menu = [];
+
+	this._observers = [];
+
+	/* With inspiration from lecture notes */
+	this.newObserver = function(obs) {
+		this._observers.push(obs);
+	}
+
+	/* With inspiration from lecture notes */
+	this.notify = function(args) {
+		for (i = 0; i < this._observers.length; i++) {
+			this._observers[i](this, args);
+		}
+
+	}
+
 
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 2
@@ -24,7 +40,7 @@ var DinnerModel = function() {
 	this.getSelectedDish = function(type) {
 		//TODO Lab 2
 
-		return this.getDish(dishes[type]);			// Don't know if this works, just a guess?
+		return this.getDish(menu[type]);			// Don't know if this works, just a guess?
 	}
 
 	//Returns all the dishes on the menu.
