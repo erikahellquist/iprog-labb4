@@ -43,7 +43,6 @@ var DinnerModel = function() {
 
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
-		//TODO Lab 2
 		if (type == "starter") {
 			return this.getDish(menu[0]);
 		}
@@ -69,7 +68,11 @@ var DinnerModel = function() {
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
-		//TODO Lab 2
+		var price = 0;
+		for (i in menu) {
+			price = price + this.getDishGuestPrice(menu[i]);
+		}
+		return price;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
@@ -127,15 +130,11 @@ var DinnerModel = function() {
 		}
 	}
 
-
 	this.getDishGuestPrice = function (id) {
 		var price = this.getDishPrice(id);
-
 		price = price * numberOfGuests;
-
 		return price;
 	}
-
 
 
 	this.getDishes = function() {

@@ -22,32 +22,13 @@ var DinnerView = function (container, model) {
 		dishList = dishList + "<img src='images/" + dish.image + "'></img><br>"
 		dishList = dishList + dish.name
 		dishList = dishList + "<br><span class='price'>"
-		dishList = dishList + model.getDishGuestPrice(list[i]) + " SEK"
+		dishList = dishList + model.getDishGuestPrice(dish.id) + " SEK"
 		dishList = dishList + "</span><br></div>"
 	}
 
-	dishList = dishList + "<div class='col-md-3'>Total:<br> <span class='price'>SEK</span>" + "</div>"
+	dishList = dishList + "<div class='col-md-3'><b>Total:</b><br> <span class='price'>" + model.getTotalMenuPrice() +" SEK</span>" + "</div>"
 
 	this.dinnerList.html(dishList); 
-
-	/*var dishList = "<table><tr>"
-
-	for (i = 0; i < list.length; i++) {
-		dish = model.getDish(list[i])
-		if (i % 5 == 0 ) {
-			dishList = dishList + "</tr><tr>"
-		}
-			dishList = dishList + "<td><img src='images/" + dish.image + "'></img><br>"
-			dishList = dishList + dish.name
-			dishList = dishList + "<br>"
-			dishList = dishList + dish.description
-			dishList = dishList + "<br></td>"	
-	}
-
-	dishList = dishList + "</tr></table>"*/
-
-	    
-
 	
 }
  
