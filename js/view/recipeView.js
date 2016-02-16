@@ -6,7 +6,7 @@ var RecipeView = function (container, model) {
 	this.dishId = container.find("#selectedDishId");
 	
 	
-	this.numberOfGuests.html(model.getNumberOfGuests);
+	this.numberOfGuests.html(model.getNumberOfGuests());
 	
 }
  
