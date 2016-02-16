@@ -21,7 +21,7 @@ var RecipeView = function (container, model) {
 	dishDisc = dishDisc + dish.description
 	dishDisc = dishDisc + "<br>"
 	dishDisc = dishDisc + "<a href=" + "selectDish.html" +" ><button type= " +"button" +" class= " +"btn-default btn-block" +"> Go back to Select Dish </button></a>"
-	dishDisc = dishDisc + "<br>"
+	dishDisc = dishDisc + "<br><br>"
 	this.leftSide.html(dishDisc)
 
 	
@@ -37,13 +37,13 @@ var RecipeView = function (container, model) {
 		dishDisc = dishDisc +"	" +  dish.ingredients[i].quantity
 		dishDisc = dishDisc +"	" +  dish.ingredients[i].unit
 		dishDisc = dishDisc +"	" +  dish.ingredients[i].name
-		dishDisc = dishDisc +"	SEK " +  dish.ingredients[i].price * model.getNumberOfGuests()
-		dishDisc = dishDisc + "<br>"
+		dishDisc = dishDisc +"<span class='right'>SEK " +  dish.ingredients[i].price * model.getNumberOfGuests()
+		dishDisc = dishDisc + "</span><br>"
 		totalpris = totalpris + dish.ingredients[i].price * model.getNumberOfGuests()
 	}
 	dishDisc = dishDisc + "<hr>"
 	dishDisc = dishDisc + "<a href=" + "selectDish.html" +" ><button type= " +"button" +" class= " +"btn-default btn-block" +"> Confirm dish </button></a>"
-	dishDisc = dishDisc + "              SEK : " + totalpris
+	dishDisc = dishDisc + "<span class='right'>SEK : " + totalpris + "</span><br><br>"
 	
 	this.rightSide.html(dishDisc)
 	

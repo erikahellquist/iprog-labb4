@@ -146,6 +146,13 @@ html, body, .container-fluid {
 	padding: 20px;
 }
 
+#rightHalf {
+	background-color: rgb(255,233,148);
+	border-style:solid;
+	border-width:4px;
+	border-top:none;
+}
+
 #info {
 	background-color: rgba(255,255,255, 0.8);
 	color: black;
