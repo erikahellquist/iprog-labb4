@@ -22,7 +22,7 @@ var DinnerView = function (container, model) {
 		dishList += "<span class='dinnertitle'>"
 		dishList = dishList + dish.name
 		dishList += "</span>"
-		dishList = dishList + "<br><span class='price'>"
+		dishList = dishList + "<span class='price'>"
 		dishList = dishList + model.getDishGuestPrice(dish.id) + " SEK"
 		dishList = dishList + "</span><br></div>"
 	}
