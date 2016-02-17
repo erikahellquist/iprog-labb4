@@ -1,4 +1,6 @@
 var RecipeView = function (container, model) {
+
+	model.addObserver(this);
 	
 	this.numberOfGuests = container.find("#numberOfGuests");
 	this.dishId = container.find("#dishId");

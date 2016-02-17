@@ -11,14 +11,14 @@ var DinnerModel = function() {
 	this._observers = [];
 
 	/* With inspiration from lecture notes */
-	this.newObserver = function(obs) {
+	this.addObserver = function(obs) {
 		this._observers.push(obs);
 	}
 
 	/* With inspiration from lecture notes */
-	this.notify = function(args) {
+	this.notifyObservers = function(obj) {
 		for (i = 0; i < this._observers.length; i++) {
-			this._observers[i](this, args);
+			this._observers[i].update(obj);
 		}
 
 	}
@@ -27,6 +27,7 @@ var DinnerModel = function() {
 		if (num > 0) {
 			numberOfGuests = num;
 		}
+		this.notifyObservers();
 	}
 
 	this.getNumberOfGuests = function() {
@@ -34,9 +35,7 @@ var DinnerModel = function() {
 		return numberOfGuests;
 	}
 	
-	// should return 
 	this.getSelectedDishId = function() {
-		//TODO Lab 2
 		return selectedDishId;
 	}
 
@@ -90,6 +89,8 @@ var DinnerModel = function() {
 		else if (dish.type == "dessert") {
 			menu[2] = dish.id;
 		}
+
+		this.notifyObservers();
 	}
 
 	//Removes dish from menu
@@ -99,6 +100,7 @@ var DinnerModel = function() {
 				menu.splice(d, 1);
 			}
 		}
+		this.notifyObservers();
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
