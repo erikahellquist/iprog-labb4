@@ -70,6 +70,11 @@ hr {
 	color: black;
 }
 
+.verticalLine {
+    border-left: solid black;
+    border-width: 1px;
+}
+
 html, body, .container-fluid {
 	height: 100%;
 }
