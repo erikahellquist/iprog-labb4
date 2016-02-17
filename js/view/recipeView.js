@@ -19,9 +19,9 @@ var RecipeView = function (container, model) {
 	dishDisc = dishDisc + "<img src='images/" + dish.image + "'></img><br>"
 	dishDisc = dishDisc + "<br>"
 	dishDisc = dishDisc + dish.description
-	dishDisc = dishDisc + "<br>"
-	dishDisc = dishDisc + "<a href=" + "selectDish.html" +" ><button type= " +"button" +" class= " +"btn-default btn-block" +"> Go back to Select Dish </button></a>"
 	dishDisc = dishDisc + "<br><br>"
+	dishDisc = dishDisc + "<a href=" + "selectDish.html" +" ><button type= " +"button" +" class= " +"btn-default btn-block" +"> Go back to Select Dish </button></a>"
+	dishDisc = dishDisc + "<br><br><br><br>"
 	this.leftSide.html(dishDisc)
 
 	

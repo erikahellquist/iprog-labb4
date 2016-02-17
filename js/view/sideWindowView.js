@@ -6,20 +6,6 @@ var SideWindowView = function (container, model) {
 	this.numberOfGuests = container.find("#numberOfGuests");
 	this.plusButton = container.find("#plusGuest");
 	this.minusButton = container.find("#minusGuest");
-
-	this.starter = container.find("#starter");
-	this.main = container.find("#main");
-	this.dessert = container.find("#dessert");
-
-	this.starterPrice = container.find("#starterPrice");
-	this.mainPrice = container.find("#mainPrice");
-	this.dessertPrice = container.find("#dessertPrice");
-
-	this.starterAmount = container.find("#starterAmount");
-	this.mainAmount = container.find("#mainAmount");
-	this.dessertAmount = container.find("#dessertAmount");
-
-	this.totalPrice = container.find("#totalPrice");
 	
 	this.numberOfGuests.html(model.getNumberOfGuests());
 
@@ -34,6 +20,7 @@ var SideWindowView = function (container, model) {
 		var dish = model.getDish(menu[no]);
 
 		if (dish.id == model.getSelectedDishId()) {
+			string += "<a href='recipeView.html'>"
 			string += "<div class='row' id='current'>"
 		}
 		else {
@@ -43,6 +30,10 @@ var SideWindowView = function (container, model) {
 		string += dish.name
 		string += "<span class='right price'>"+ model.getDishGuestPrice(dish.id) + "</span>"
 		string += "</div>"
+
+		if (dish.id == model.getSelectedDishId()) {
+			string += "</a>"
+		}
 	}
 
 	string += "<hr><span class='right price'>SEK " + model.getTotalMenuPrice() + "</span><br><br>"
@@ -54,35 +45,6 @@ var SideWindowView = function (container, model) {
 	this.menuContainer.html(string);
 
 
-
-
-
-
-
-	/* Kod som funkar
-
-	var string = "<br>";
-
-	var menu = model.getFullMenu()
-
-	for (no in menu) {
-		var dish = model.getDish(menu[no]);
-		string += "<span class='left'>" + model.getNumberOfGuests() + "</span>"
-		string += dish.name
-		string += "<span class='right price'>"+ model.getDishGuestPrice(dish.id) + "</span>"
-		string += "<br>"
-	}
-
-	string += "<hr><span class='right price'>SEK " + model.getTotalMenuPrice() + "</span><br><br>"
-
-	string += "<a href='dinnerOverview.html'><button type='button' class='btn-default btn-block'>Confirm dinner</button></a><br>"
-
-	
-
-	this.menuContainer.html(string);
-
-
-	*/
 
 
 	
