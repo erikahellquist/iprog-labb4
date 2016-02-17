@@ -34,7 +34,7 @@ var DinnerView = function (container, model) {
 
 
 	dishList += "<div class='col-md-12'><br><hr><center>"
-	dishList += "<a href='dinnerPreparation.html'><button type='button' class='btn btn-default'>Print full recipe</button></a>"
+	dishList += "<a href='dinnerPreparation.html'><button type='button' class='btn btn-default' style='width:300px;'>Print full recipe</button></a>"
 	dishList += "</center></div>"
 
 

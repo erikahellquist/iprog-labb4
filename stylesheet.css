@@ -52,6 +52,7 @@ hr {
 	border-radius:0;
 	border-color: black;
 	box-shadow: 3px 3px 0 0 black;
+	color:black;
 }
 
 
@@ -61,6 +62,7 @@ hr {
 	border-color: black;
 	width:290px;
 	height: 36px;
+	color:black;
 }
 
 .dropdown-menu {
