@@ -21,6 +21,7 @@ hr {
 	border-color:black;
 }
 
+
 .price {
 	color: darkred;
 }
@@ -38,10 +39,6 @@ hr {
 	text-decoration: none;
 }
 
-.center {
-	/*text-align:center;*/
-	display:inline-block;
-}
 
 .btn-default, .btn-default:hover {
 	background-color: rgb(254,177,96);
@@ -80,6 +77,10 @@ html, body, .container-fluid {
     display: inline-block;
     text-align: center;
  
+}
+
+#menu {
+	text-align:center;
 }
 
 #dish img {
@@ -152,6 +153,13 @@ html, body, .container-fluid {
 	border-width:4px;
 	border-top:none;
 }
+
+#lowerHalf {
+	background-color: rgb(255,255,255);
+	border-top:none;
+
+}
+
 
 #info {
 	background-color: rgba(255,255,255, 0.8);

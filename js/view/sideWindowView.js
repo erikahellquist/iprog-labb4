@@ -15,25 +15,37 @@ var SideWindowView = function (container, model) {
 	this.mainPrice = container.find("#mainPrice");
 	this.dessertPrice = container.find("#dessertPrice");
 
+	this.starterAmount = container.find("#starterAmount");
+	this.mainAmount = container.find("#mainAmount");
+	this.dessertAmount = container.find("#dessertAmount");
+
 	this.totalPrice = container.find("#totalPrice");
 	
 	this.numberOfGuests.html(model.getNumberOfGuests());
 
-	var dishList = model.getFullMenu();
 
-	var start = model.getDish(dishList[0]);
-	this.starter.html(start.name);
-	this.starterPrice.html(model.getDishGuestPrice(start.id));
 
-	var main = model.getDish(dishList[1]);
-	this.main.html(main.name);
-	this.mainPrice.html(model.getDishGuestPrice(main.id));
+	this.menuContainer = container.find("#menu");
 
-	var dessert = model.getDish(dishList[2]);
-	this.dessert.html(dessert.name);
-	this.dessertPrice.html(model.getDishGuestPrice(dessert.id));
+	var string = "<br>";
 
-	this.totalPrice.html(model.getTotalMenuPrice());
+	var menu = model.getFullMenu()
+
+	for (no in menu) {
+		var dish = model.getDish(menu[no]);
+		string += "<span class='left'>" + model.getNumberOfGuests() + "</span>"
+		string += dish.name
+		string += "<span class='right price'>"+ model.getDishGuestPrice(dish.id) + "</span>"
+		string += "<br>"
+	}
+
+	string += "<hr><span class='right price'>SEK " + model.getTotalMenuPrice() + "</span><br><br>"
+
+	string += "<a href='dinnerOverview.html'><button type='button' class='btn-default btn-block'>Confirm dinner</button></a><br>"
+
+	
+
+	this.menuContainer.html(string);
 
 
 
