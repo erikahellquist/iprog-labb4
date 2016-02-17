@@ -125,14 +125,26 @@ html, body, .container-fluid {
 	width:200px;
 }
 
+#dish .dinnertitle {
+	color:black;
+	display:block;
+	background-color: rgb(222,222,222);
+	border: solid;
+	border-top:none;
+	margin-left:65px;
+	padding:3px;
+	width:200px;
+
+}
+
 #dish .description {
 	color:black;
 	text-align:left;
 	display:block;
 	margin:30px;
 	width:200px;
-
 }
+
 
 
 

@@ -11,7 +11,7 @@ var DinnerView = function (container, model) {
 	this.dinnerList = container.find("#dinnerListing");
 	
 
-	var dishList = ""
+	var dishList = "<br><br>"
 	var list = model.getFullMenu();
 
 
@@ -19,7 +19,9 @@ var DinnerView = function (container, model) {
 		dish = model.getDish(list[i])
 		dishList = dishList + "<div class='col-md-3' id='dish'>"
 		dishList = dishList + "<img src='images/" + dish.image + "'></img><br>"
+		dishList += "<span class='dinnertitle'>"
 		dishList = dishList + dish.name
+		dishList += "</span>"
 		dishList = dishList + "<br><span class='price'>"
 		dishList = dishList + model.getDishGuestPrice(dish.id) + " SEK"
 		dishList = dishList + "</span><br></div>"
