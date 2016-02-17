@@ -21,6 +21,12 @@ hr {
 	border-color:black;
 }
 
+.lower {
+	
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
 
 .price {
 	color: darkred;
@@ -83,7 +89,12 @@ html, body, .container-fluid {
 	vertical-align: top;
     display: inline-block;
     text-align: center;
+
 }
+#dinnerPrice {
+	position : relative;
+	min-height : 240px;
+	}
 
 #current {
 	border-color: darkgrey;
