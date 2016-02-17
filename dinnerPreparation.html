@@ -8,32 +8,29 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="stylesheet.css">
 
   </head>
   <body>
 
 	<div class="container-fluid">
-		<div class="row"><div class="logotypeGrid">
-			<font size="8">HOMELETTE</font> <i>From the best chefs in the world directly into your kitchen</i>
-			<a href="index.html"><button>Gå till index.html</button></a>
-		</div></div>
 		<div class="row">
-			<div class="col-md-2" id="exampleView"><div class="leftMenuGrid">
-				<h4>My dinner</h4>
-				<div>
-					Number of guests: <span id="numberOfGuests"></span>
-				</div>
-				<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-			</div></div>
-
-			<div class="col-md-10"><div class="topMenuGrid">
-				<div class="row"><h4>Select dish</h4> <hr></div></div>
-
-				<div class="row">recept etc<div>
-
+			<div class="col-md-12" id="header">
+				<font size="10"><b>HOMELETTE</b></font> <i>From the best chefs in the world directly into your kitchen</i>
 			</div>
+		</div>
+
+		<div class="row" id="dinnerPrepView">
+			<div class="row">	
+				<div class="col-md-12" id="dinnerBar">
+					<h2>My dinner: <span id="numberOfGuests"></span> people</h2>
+					<span class='right'><a href="selectDish.html"><button type="button" class="btn btn-default">Go back and edit dinner</button></a></span>
+				</div>
+
+				<div class="col-md-12" id="prepView">
+					hej
+				</div>
+
 		</div>
 	</div>
 
@@ -47,7 +44,11 @@
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
 	<script src="js/view/exampleView.js"></script>
-	<script src="js/view/startView.js"></script>
-	<!--<script src="js/view/exampleViewController.js"></script>  Är detta något som används????? -->
+	<script src="js/view/sideWindowView.js"></script>
+	<script src="js/view/selectDishView.js"></script>
+	<script src="js/view/dinnerView.js"></script>
+	<script src="js/view/recipeView.js"></script>
+	<script src="js/view/dinnerPrepView.js"></script>
+
   </body>
 </html>

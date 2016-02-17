@@ -98,7 +98,13 @@ html, body, .container-fluid {
 	text-align:center;
 }
 
-#dish img {
+#dishList {
+	margin:40px;
+	padding:8px;
+	color:black;
+}
+
+#dish img, #dishList img {
 	height: 200px;
 	width: 200px;
 	border:solid;
@@ -125,6 +131,8 @@ html, body, .container-fluid {
 	width:200px;
 
 }
+
+
 
 #mini {
 	border-style: solid;
