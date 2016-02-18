@@ -16,22 +16,21 @@ var DinnerModel = function() {
 	}
 
 	/* With inspiration from lecture notes */
-	this.notifyObservers = function(obj) {
+	this.notifyObservers = function() {
 		for (i = 0; i < this._observers.length; i++) {
-			this._observers[i].update(obj);
+			this._observers[i].update();
 		}
 
 	}
 
 	this.setNumberOfGuests = function(num) {
-		if (num > 0) {
+		if (num >= 0) {
 			numberOfGuests = num;
 		}
 		this.notifyObservers();
 	}
 
 	this.getNumberOfGuests = function() {
-
 		return numberOfGuests;
 	}
 	
