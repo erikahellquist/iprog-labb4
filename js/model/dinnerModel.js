@@ -1,25 +1,39 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
  
-	//TODO Lab 2 implement the data structure that will hold number of guest
+	//Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 	var numberOfGuests = 2;
 	var numberOfDishes = 3;
 	var selectedDishId = 1;
 	var menu = [1, 100, 200];
+	var nrChanges = 0;
 
 	this._observers = [];
 
 	/* With inspiration from lecture notes */
-	this.addObserver = function(obs) {
-		this._observers.push(obs);
+	this.addObserver = function(observer) {
+		this._observers.push(observer);
 	}
 
 	/* With inspiration from lecture notes */
-	this.notifyObservers = function() {
-		for (i = 0; i < this._observers.length; i++) {
-			this._observers[i].update();
+	this.notifyObservers = function(args) {
+		for (o = 0; o < this._observers.length; o++) {
+			console.log("o=",o);
+			this._observers[o].update(args);
+			//console.log("o=",o);
 		}
+
+	}
+
+
+	this.addChange = function() {
+
+		nrChanges++;
+	}
+
+	this.getChanges = function(){
+		return nrChanges;
 
 	}
 

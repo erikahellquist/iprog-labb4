@@ -11,6 +11,7 @@ $(function() {
 
 
 	// Create all the needed controllers
+	//var viewController = new viewController(model);
 	var sideWindowController = new SideWindowController(sideWindowView,model);
 
 

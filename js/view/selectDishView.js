@@ -1,7 +1,7 @@
 //ExampleView Object constructor
 var SelectDishView = function (container, model) {
 
-	//model.addObserver(this);
+	model.addObserver(this);
 	
 	// Get all the relevant elements of the view (ones that show data
   	// and/or ones that responed to interaction)
@@ -31,6 +31,8 @@ var SelectDishView = function (container, model) {
 	
 	this.update = function() {
 		createSelectDishView();
+		console.log("update selectdish");
+		console.log(model.getChanges());
 	}
 	
 	createSelectDishView(); // Initialization                                 

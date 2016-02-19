@@ -51,6 +51,8 @@ var SideWindowView = function (container, model) {
 
 	this.update = function() {
 		createSideWindow();
+		console.log("update sidewindow");
+		console.log(model.getChanges());
 	}
 
 	createSideWindow();		// Initialize the view

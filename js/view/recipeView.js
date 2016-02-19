@@ -36,7 +36,6 @@ var RecipeView = function (container, model) {
 		
 		//Creating the html for the top right side of the screen
 		
-		
 		dishDisc = "<h3> INGREDIENTS FOR " + model.getNumberOfGuests()+ " PEOPLE</h3>"
 		dishDisc = dishDisc + "<hr>"
 		totalpris = 0
@@ -50,7 +49,7 @@ var RecipeView = function (container, model) {
 			totalpris = totalpris + dish.ingredients[i].price * model.getNumberOfGuests()
 		}
 		dishDisc = dishDisc + "<hr>"
-		dishDisc = dishDisc + "<a href=" + "selectDish.html" +" ><button type= " +"button" +" class= " +"btn-default btn-block" +"> Confirm dish </button></a>"
+		dishDisc = dishDisc + "<a href=" + "selectDish.html" +"><button type= " +"button" +" class= " +"btn-default btn-block" +"> Confirm dish </button></a>"
 		dishDisc = dishDisc + "<span class='right'>SEK : " + totalpris + "</span><br><br>"
 		
 		rightSide.html(dishDisc)
@@ -60,12 +59,12 @@ var RecipeView = function (container, model) {
 		dishDisc = dishDisc + dish.description
 		
 		lower.html(dishDisc)
-		
-
 	}
 	
 	this.update = function() {
 		createRecipeView();
+		console.log("update recipewindow");
+		console.log(model.getChanges());
 
 	}
 	
