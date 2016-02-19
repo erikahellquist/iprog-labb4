@@ -3,7 +3,6 @@ $(function() {
 	var model = new DinnerModel();
 	
 	//And create the needed views
-	var exampleView = new ExampleView($("#exampleView"), model);
 	var sideWindowView = new SideWindowView($("#sideWindowView"), model);
 	var selectDishView = new SelectDishView($("#selectDishView"), model);
 	var recipeView = new RecipeView($("#recipeView"), model);
