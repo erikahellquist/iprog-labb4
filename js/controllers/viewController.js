@@ -10,22 +10,17 @@ var ViewController = function(model) {
 	$("#dinnerPrepView").hide();
 	
 
-
 	this.showSelectDish = function() {
-		console.log("I showSelectDish-funk");
 		$("#homePage").hide();
 		$("#header").show();
 		$("#sideWindowView").show();
 		$("#selectDishView").show();
-		
-
 	}
 
 
 	this.showRecipeView = function() {
 		$("#selectDishView").hide();
 		$("#sideWindowView").show();
-
 		$("#recipeView").show();
 	}
 
@@ -33,7 +28,6 @@ var ViewController = function(model) {
 		$("#sideWindowView").hide();
 		$("#selectDishView").hide();
 		$("#recipeView").hide();
-
 		$("#dinnerView").show();
 	}
 

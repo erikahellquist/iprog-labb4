@@ -16,9 +16,10 @@ $(function() {
 
 
 	// Create all the needed controllers
-	var sideWindowController = new SideWindowController(sideWindowView, model);
-
+	var sideWindowController = new SideWindowController(sideWindowView, model, viewController);
+	var selectDishController = new SelectDishController(selectDishView, model, viewController);
 	var homepageViewController = new HomepageViewController(homepageView, model, viewController);
+	var dinnerViewController = new DinnerViewController(dinnerView, model, viewController);
 
 
 

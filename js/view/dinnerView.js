@@ -1,12 +1,15 @@
 //ExampleView Object constructor
 var DinnerView = function (container, model) {
 
-	//model.addObserver(this);
+	model.addObserver(this);
 	
 	// Get all the relevant elements of the view (ones that show data
   	// and/or ones that responed to interaction)
 	var numberOfGuests = this.numberOfGuests = container.find("#numberOfGuests");
 	var dinnerList = this.dinnerList = container.find("#dinnerListing");
+	var goToPrep = this.goToPrep = container.find("#goToPrep");
+	var goBack = this.goBack = container.find("#goBack");
+
 	
 	createDinnerView = function() {
 		numberOfGuests.html(model.getNumberOfGuests());
@@ -34,9 +37,8 @@ var DinnerView = function (container, model) {
 
 
 
-		dishList += "<div class='col-md-12'><br><hr><center>"
-		dishList += "<a href='dinnerPreparation.html'><button type='button' class='btn btn-default' style='width:300px;'>Print full recipe</button></a>"
-		dishList += "</center></div>"
+		dishList += "<div class='col-md-12'><br><hr>"
+		dishList += "</div>"
 
 
 		dinnerList.html(dishList); 

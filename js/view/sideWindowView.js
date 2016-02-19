@@ -8,6 +8,7 @@ var SideWindowView = function (container, model) {
 	var numberOfGuests = this.numberOfGuests = container.find("#numberOfGuests");
 	var plusButton = this.plusButton = container.find("#plusGuest");
 	var minusButton = this.minusButton = container.find("#minusGuest");
+	var confirmDinner = this.confirmDinner = container.find("#confirmDinner");
 
 	var menuContainer = this.menuContainer = container.find("#menu");
 	
@@ -41,8 +42,6 @@ var SideWindowView = function (container, model) {
 		}
 
 		string += "<hr><span class='right price'>SEK " + model.getTotalMenuPrice() + "</span><br><br>"
-
-		string += "<a href='dinnerOverview.html'><button type='button' class='btn-default btn-block'>Confirm dinner</button></a><br>"
 
 
 		menuContainer.html(string);
