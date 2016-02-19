@@ -1,5 +1,5 @@
 //ExampleView Object constructor
-var SideWindowView = function (container, model) {
+var SideWindowView = function (container, model, viewController) {
 	
 	model.addObserver(this);
 	
@@ -25,33 +25,37 @@ var SideWindowView = function (container, model) {
 			var dish = model.getDish(menu[no]);
 
 			if (dish.id == model.getSelectedDishId()) {
-				string += "<a href='recipeView.html'>"
-				string += "<div class='row' id='current'>"
+				string += "<div class='row current' id='" + dish.id + "'>"
 			}
 			else {
-				string += "<div class='row' id='noncurrent'>"
+				string += "<div class='row noncurrent' id='" + dish.id + "'>"
 			}
 			string += "<span class='left'>" + model.getNumberOfGuests() + "</span>"
 			string += dish.name
 			string += "<span class='right price'>"+ model.getDishGuestPrice(dish.id) + "</span>"
 			string += "</div>"
 
-			if (dish.id == model.getSelectedDishId()) {
-				string += "</a>"
-			}
+			
 		}
 
 		string += "<hr><span class='right price'>SEK " + model.getTotalMenuPrice() + "</span><br><br>"
 
-
 		menuContainer.html(string);
+
+		for (no in menu) {
+			var dish = model.getDish(menu[no]);
+			var controller = new ChooseSelectedDishController(model, viewController, dish.id);
+		}
+		//var test = this.test = container.find("#" + dish.id);
+		//test.html("halååååå");
+
 	}
+
 
 
 	this.update = function() {
 		createSideWindow();
-		console.log("update sidewindow");
-		console.log(model.getChanges());
+		//console.log("update sidewindow");
 	}
 
 	createSideWindow();		// Initialize the view

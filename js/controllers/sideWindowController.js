@@ -16,3 +16,16 @@ var SideWindowController = function(view, model, viewController) {
 	});
 
 }
+
+var ChooseSelectedDishController = function(model, viewController, id) {
+
+	var dish = "#" + id;
+
+	$(dish).click(function(){
+		model.setSelectedDishId(id);
+		//viewController.showRecipe(id);
+		console.log("Here we would go to", id);
+
+	});
+
+}

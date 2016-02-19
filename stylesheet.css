@@ -98,7 +98,7 @@ html, body, .container-fluid {
 	min-height : 240px;
 	}
 
-#current {
+.current {
 	border-color: darkgrey;
 	border-style:solid;
 	border-width:2px;
@@ -106,7 +106,7 @@ html, body, .container-fluid {
 	margin:1px;
 }
 
-#noncurrent {
+.noncurrent {
 	border-color: white;
 	border-style:solid;
 	border-width:2px;

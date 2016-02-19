@@ -6,7 +6,7 @@ $(function() {
 	var viewController = new ViewController(model);
 	
 	//And create the needed views
-	var sideWindowView = new SideWindowView($("#sideWindowView"), model);
+	var sideWindowView = new SideWindowView($("#sideWindowView"), model, viewController);
 	var selectDishView = new SelectDishView($("#selectDishView"), model);
 	var recipeView = new RecipeView($("#recipeView"), model);
 	var dinnerView = new DinnerView($("#dinnerView"), model);

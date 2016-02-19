@@ -23,7 +23,6 @@ var DinnerModel = function() {
 			this._observers[o].update(args);
 			//console.log("o=",o);
 		}
-
 	}
 
 
@@ -50,6 +49,11 @@ var DinnerModel = function() {
 	
 	this.getSelectedDishId = function() {
 		return selectedDishId;
+	}
+
+	this.setSelectedDishId = function(id) {
+		selectedDishId = id;
+		this.notifyObservers();
 	}
 
 	//Returns the dish that is on the menu for selected type 
