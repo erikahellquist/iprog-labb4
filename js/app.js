@@ -20,7 +20,7 @@ $(function() {
 	var selectDishController = new SelectDishController(selectDishView, model, viewController);
 	var homepageViewController = new HomepageViewController(homepageView, model, viewController);
 	var dinnerViewController = new DinnerViewController(dinnerView, model, viewController);
-
+	var dinnerPrepController = new DinnerPrepController(dinnerPrepView, model, viewController);
 
 
 });

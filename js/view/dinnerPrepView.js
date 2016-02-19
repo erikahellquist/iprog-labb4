@@ -1,12 +1,13 @@
 //ExampleView Object constructor
 var DinnerPrepView = function (container, model) {
 
-	//model.addObserver(this);
+	model.addObserver(this);
 	
 	// Get all the relevant elements of the view (ones that show data
   	// and/or ones that responed to interaction)
 
 	var prep = this.prep = container.find("#prepView");
+	var goToDinner = this.goToDinner = container.find("#goToDinner");
 
 	var numberOfGuests = this.numberOfGuests = container.find("#numberOfGuests");
 
