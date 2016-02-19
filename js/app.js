@@ -11,7 +11,6 @@ $(function() {
 	var recipeView = new RecipeView($("#recipeView"), model);
 	var dinnerView = new DinnerView($("#dinnerView"), model);
 	var dinnerPrepView = new DinnerPrepView($("#dinnerPrepView"), model);
-
 	var homepageView = new HomepageView($("#homePage"), model, viewController);
 
 
