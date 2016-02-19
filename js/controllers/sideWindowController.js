@@ -1,5 +1,5 @@
 //sideWindowController Object constructor
-var SideWindowController = function(view, model ) {
+var SideWindowController = function(view, model) {
  
 	view.plusButton.click(function(){
 		model.setNumberOfGuests(model.getNumberOfGuests() + 1);

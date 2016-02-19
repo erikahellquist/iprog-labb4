@@ -1,5 +1,5 @@
 //viewController Object constructor
-var viewController = function(model) {
+var ViewController = function(model) {
 
 	$("#homePage").show();
 	$("#header").hide();
@@ -11,5 +11,34 @@ var viewController = function(model) {
 	
 
 
+	this.showSelectDish = function() {
+
+		$("#homePage").hide();
+
+		$("#header").show();
+		$("#sideWindowView").show();
+		$("#selectDishView").show();
+	}
+
+
+	this.showRecipeView = function() {
+		$("#selectDishView").hide();
+		$("#sideWindowView").show();
+
+		$("#recipeView").show();
+	}
+
+	this.showDinnerView = function() {
+		$("#sideWindowView").hide();
+		$("#selectDishView").hide();
+		$("#recipeView").hide();
+
+		$("#dinnerView").show();
+	}
+
+	this.showDinnerPrep = function() {
+		$("#dinnerView").hide();
+		$("#dinnerPrepView").show();
+	}
 
 }

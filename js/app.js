@@ -1,6 +1,9 @@
 $(function() {
 	//We instantiate our model
 	var model = new DinnerModel();
+
+	// create our viewcontroller
+	var viewController = new ViewController(model);
 	
 	//And create the needed views
 	var sideWindowView = new SideWindowView($("#sideWindowView"), model);
@@ -11,7 +14,6 @@ $(function() {
 
 
 	// Create all the needed controllers
-	//var viewController = new viewController(model);
 	var sideWindowController = new SideWindowController(sideWindowView,model);
 
 
