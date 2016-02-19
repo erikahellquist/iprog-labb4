@@ -11,10 +11,14 @@ $(function() {
 	var recipeView = new RecipeView($("#recipeView"), model);
 	var dinnerView = new DinnerView($("#dinnerView"), model);
 	var dinnerPrepView = new DinnerPrepView($("#dinnerPrepView"), model);
+	var homePageView = new HomePageView($("#homePage"),model, viewController);
 
 
 	// Create all the needed controllers
 	var sideWindowController = new SideWindowController(sideWindowView,model);
+
+	var homePageViewController = new HomePageViewController(homePageView,model, viewController);
+
 
 
 });
