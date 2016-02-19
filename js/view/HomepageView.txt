@@ -1,0 +1,6 @@
+var HomepageView = function (container, model) {
+
+
+
+
+}
