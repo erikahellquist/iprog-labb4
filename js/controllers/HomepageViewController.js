@@ -1,7 +1,7 @@
-var HompageViewController = function(view, model ,viewController) {
+var HomepageViewController = function(view, model ,viewController) {
  
 	view.createButton.click(function(){
 		viewController.showSelectDish();
-		console.log("I buttonclick");
+		console.log("I createButton-funk");
 	});
 }

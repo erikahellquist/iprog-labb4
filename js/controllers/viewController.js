@@ -12,12 +12,13 @@ var ViewController = function(model) {
 
 
 	this.showSelectDish = function() {
-
+		console.log("I showSelectDish-funk");
 		$("#homePage").hide();
-
 		$("#header").show();
 		$("#sideWindowView").show();
 		$("#selectDishView").show();
+		
+
 	}
 
 
