@@ -1,5 +1,5 @@
 //ExampleView Object constructor
-var SelectDishView = function (container, model) {
+var SelectDishView = function (container, model, viewController) {
 
 	model.addObserver(this);
 	
@@ -14,12 +14,10 @@ var SelectDishView = function (container, model) {
 
 
 		for (i = 0; i < list.length; i++) {
-			dish = list[i]
-			dishList = dishList + "<div class='col-md-3' id='dish'>"
+			dish = list[i];
+			dishList = dishList + "<div class='col-md-3 dish' id='goTo" + dish.id + "'>"
 			dishList = dishList + "<img src='images/" + dish.image + "'></img>"
-			dishList = dishList + "<a href='recipeView.html'>"
 			dishList = dishList + "<span class='title'><h4>" + dish.name + "</h4></span>"
-			dishList = dishList + "</a>"
 			dishList = dishList + "<span class='description'>" + dish.description + "</span>"
 			dishList = dishList + "<br></div>"
 		}
@@ -27,8 +25,16 @@ var SelectDishView = function (container, model) {
 		allDishes.html(dishList);    
 
 
+		for (k = 0; k < list.length; k++) {
+			dish = list[k];
+			var controller = new GoToRecipeController(model, viewController, dish.id);
+			console.log("number", k);
+		}
+
 	}
 	
+
+
 	this.update = function() {
 		createSelectDishView();
 		console.log("update selectdish");

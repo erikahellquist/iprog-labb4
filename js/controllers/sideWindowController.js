@@ -37,8 +37,7 @@ var TrashDishController = function(model, viewController, id) {
 	$(trashDish).click(function(){
 		//model.setSelectedDishId(id);
 		model.removeDishFromMenu(id);
-
-		console.log("Should remove dish");
+		//console.log("Should remove dish");
 
 	});
 

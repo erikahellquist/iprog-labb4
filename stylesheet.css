@@ -87,12 +87,7 @@ html, body, .container-fluid {
 	height: 100%;
 }
 
-#dish {
-	vertical-align: top;
-    display: inline-block;
-    text-align: center;
 
-}
 #dinnerPrice {
 	position : relative;
 	min-height : 240px;
@@ -124,47 +119,50 @@ html, body, .container-fluid {
 	color:black;
 }
 
-#dish img, #dishList img {
+.dish {
+	vertical-align: top;
+    display: inline-block;
+}
+
+.dish img, #dishList img {
 	height: 200px;
 	width: 200px;
 	border:solid;
 	border-width: 4px;
 	border-color:black;
 }
+
 #leftHalf img {
 	height: 250px;
 	width: 500px;
 	
 }
 
-#dish .title {
+.dish .title {
 	color:black;
 	display:block;
 	background-color: rgb(222,222,222);
 	border: solid;
 	border-top:none;
-	margin-left:30.5px;
 	padding:3px;
 	width:200px;
 }
 
-#dish .dinnertitle {
+.dish .dinnertitle {
 	color:black;
 	display:block;
 	background-color: rgb(222,222,222);
 	border: solid;
 	border-top:none;
-	margin-left:65px;
 	padding:3px;
 	width:200px;
 
 }
 
-#dish .description {
+.dish .description {
 	color:black;
 	text-align:left;
 	display:block;
-	margin:30px;
 	width:200px;
 }
 
