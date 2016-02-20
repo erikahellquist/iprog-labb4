@@ -32,7 +32,9 @@ var SideWindowView = function (container, model, viewController) {
 			}
 			string += "<span class='left'>" + model.getNumberOfGuests() + "</span>"
 			string += dish.name
+			string += "<span class='right glyphicon glyphicon-trash' id='trash" + dish.id + "'></span>"
 			string += "<span class='right price'>"+ model.getDishGuestPrice(dish.id) + "</span>"
+			
 			string += "</div>"
 
 			
@@ -40,14 +42,14 @@ var SideWindowView = function (container, model, viewController) {
 
 		string += "<hr><span class='right price'>SEK " + model.getTotalMenuPrice() + "</span><br><br>"
 
+
 		menuContainer.html(string);
 
 		for (no in menu) {
 			var dish = model.getDish(menu[no]);
 			var controller = new ChooseSelectedDishController(model, viewController, dish.id);
+			var trashController = new TrashDishController(model, viewController, dish.id);
 		}
-		//var test = this.test = container.find("#" + dish.id);
-		//test.html("halååååå");
 
 	}
 

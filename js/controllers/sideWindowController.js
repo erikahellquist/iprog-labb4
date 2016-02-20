@@ -29,3 +29,18 @@ var ChooseSelectedDishController = function(model, viewController, id) {
 	});
 
 }
+
+var TrashDishController = function(model, viewController, id) {
+
+	var trashDish = "#trash" + id;
+
+	$(trashDish).click(function(){
+		//model.setSelectedDishId(id);
+		model.removeDishFromMenu(id);
+
+		console.log("Should remove dish");
+
+	});
+
+}
+
