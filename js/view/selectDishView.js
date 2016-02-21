@@ -51,8 +51,8 @@ var SelectDishView = function (container, model, viewController) {
 		field += "</span></div></div>"
 
 
-		// Dropdown menu
-		field += "<div class='col-md-4'>"
+	
+		/*field += "<div class='col-md-4'>"
 		field += "<div class='dropdown'>"
 		field += "<button class='btn-drop dropdown-toggle' type='button' id='dropdownDish' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>"
 		field += "<span class='left'>Select course</span><span class='right'><span class='caret'></span></span>"
@@ -62,16 +62,15 @@ var SelectDishView = function (container, model, viewController) {
 		field += "<li>Main dish</li>"
 		field += "<li>Dessert</li>"
 		field += "</ul></div></div>"
-		field += "<div class='col-md-4'></div>"
+		field += "<div class='col-md-4'></div>"*/
 
-
-		/*field += "<div class='col-md-4'>"
-		field += "<select>"
+	// Dropdown menu
+		field += "<div class='col-md-4'>"
+		field += "<select class='form-control'>"
 		field += "<option value='mainDish'>Main Dish</option>"
 		field += "<option value='starter'>Starter</option>"
 		field += "<option value='dessert'>Dessert</option>"
-
-		field += "</select></div>"*/
+		field += "</select></div>"
 
 		searchBar.html(field);
 	}
