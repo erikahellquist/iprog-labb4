@@ -32,7 +32,7 @@ var RecipeView = function (container, model, viewController) {
 		dishDisc = dishDisc + "<br><br><br><br>"
 		leftSide.html(dishDisc)
 		
-		
+		backButton = this.backButton = container.find("#backButton")
 		
 		
 		//Creating the html for the top right side of the screen
