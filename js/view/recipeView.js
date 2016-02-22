@@ -1,4 +1,4 @@
-var RecipeView = function (container, model) {
+var RecipeView = function (container, model, viewController) {
 
 	model.addObserver(this);
 	
@@ -8,7 +8,7 @@ var RecipeView = function (container, model) {
 	var leftSide = this.leftSide = container.find("#leftHalf")
 	var rightSide = this.rightSide = container.find("#rightHalf")
 	var lower = this.lower = container.find("#lowerHalf")
-
+	var backButton = this.backButton = container.find("#backButton")
 
 	var createRecipeView = function() {
 
@@ -28,10 +28,11 @@ var RecipeView = function (container, model) {
 		dishDisc = dishDisc + "<br>"
 		dishDisc = dishDisc + dish.description
 		dishDisc = dishDisc + "<br><br>"
-		dishDisc = dishDisc + "<a href=" + "selectDish.html" +" ><button type= " +"button" +" class= " +"btn-default btn-block" +"> Go back to Select Dish </button></a>"
+		dishDisc = dishDisc + "<button type= 'button' class= 'btn-default btn-block'> Go back to Select Dish </button>"
 		dishDisc = dishDisc + "<br><br><br><br>"
 		leftSide.html(dishDisc)
-
+		
+		
 		
 		
 		//Creating the html for the top right side of the screen
