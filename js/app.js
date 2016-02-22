@@ -8,7 +8,7 @@ $(function() {
 	//And create the needed views
 	var sideWindowView = new SideWindowView($("#sideWindowView"), model, viewController);
 	var selectDishView = new SelectDishView($("#selectDishView"), model, viewController);
-	var recipeView = new RecipeView($("#recipeView"), model);
+	var recipeView = new RecipeView($("#recipeView"), model, viewController);
 	var dinnerView = new DinnerView($("#dinnerView"), model);
 	var dinnerPrepView = new DinnerPrepView($("#dinnerPrepView"), model);
 	var homepageView = new HomepageView($("#homePage"), model, viewController);
@@ -21,5 +21,6 @@ $(function() {
 	var dinnerViewController = new DinnerViewController(dinnerView, model, viewController);
 	var dinnerPrepController = new DinnerPrepController(dinnerPrepView, model, viewController);
 	var selectDishController = new SelectDishController(selectDishView, model, viewController);
+	var recipeViewController = new RecipeViewController(recipeView, model, viewController);
 
 });
