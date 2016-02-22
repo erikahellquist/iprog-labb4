@@ -50,7 +50,6 @@ var SelectDishView = function (container, model, viewController) {
 		field += "<button class='btn btn-default' type='button'>Search</button>"
 		field += "</span></div></div>"
 
-
 	
 		/*field += "<div class='col-md-4'>"
 		field += "<div class='dropdown'>"
@@ -67,8 +66,8 @@ var SelectDishView = function (container, model, viewController) {
 	// Dropdown menu
 		field += "<div class='col-md-4'>"
 		field += "<select class='form-control'>"
-		field += "<option value='mainDish'>Main Dish</option>"
 		field += "<option value='starter'>Starter</option>"
+		field += "<option value='mainDish' selected>Main Dish</option>"
 		field += "<option value='dessert'>Dessert</option>"
 		field += "</select></div>"
 
