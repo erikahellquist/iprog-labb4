@@ -21,5 +21,6 @@ $(function() {
 	var dinnerViewController = new DinnerViewController(dinnerView, model, viewController);
 	var dinnerPrepController = new DinnerPrepController(dinnerPrepView, model, viewController);
 	var selectDishController = new SelectDishController(selectDishView, model, viewController);
+	var recipeViewController = new RecipeViewController(recipeView, model, viewController);
 
 });
