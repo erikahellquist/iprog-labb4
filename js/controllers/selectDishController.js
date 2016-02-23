@@ -1,10 +1,6 @@
 //SelectDishController Object constructor
 var SelectDishController = function(view, model, viewController) {
- 
-	/*view.createButton.click(function(){
-		viewController.showSelectDish();
-		console.log("I createButton-funk");
-	});*/
+ 	//
 
 }
 
@@ -26,7 +22,6 @@ var DropdownController = function(model) {
 		$("#selectList select").val(choice);
 
 		model.notifyObservers();
-
 	});
 }
 
@@ -34,7 +29,6 @@ var SearchFieldController = function(model) {
 
 	$("#searchFieldButton").click(function(){
 		var value = $('#searchField').val();
-		console.log("i SearchFieldController, mitt field = ", value);
 
 		$('#searchField').val(value);
 

@@ -1,14 +1,12 @@
-//sideWindowController Object constructor
+//SideWindowController Object constructor
 var SideWindowController = function(view, model, viewController) {
  
 	view.plusButton.click(function(){
 		model.setNumberOfGuests(model.getNumberOfGuests() + 1);
-		//model.addChange();
 	});
  
 	view.minusButton.click(function(){
 		model.setNumberOfGuests(model.getNumberOfGuests() - 1);
-		//model.addChange();
 	});
 
 	view.confirmDinner.click(function(){
@@ -24,10 +22,7 @@ var ChooseSelectedDishController = function(model, viewController, id) {
 	$(dish).click(function(){
 		model.setSelectedDishId(id);
 		viewController.showRecipeView(id);
-		//console.log("Here we would go to", id);
-
 	});
-
 }
 
 var TrashDishController = function(model, viewController, id) {
@@ -35,11 +30,7 @@ var TrashDishController = function(model, viewController, id) {
 	var trashDish = "#trash" + id;
 
 	$(trashDish).click(function(){
-		//model.setSelectedDishId(id);
 		model.removeDishFromMenu(id);
-		//console.log("Should remove dish");
-
 	});
-
 }
 

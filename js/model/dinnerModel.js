@@ -6,7 +6,6 @@ var DinnerModel = function() {
 	var numberOfGuests = 2;
 	var selectedDishId = 1;
 	var menu = [1, 100, 200];
-	var nrChanges = 0;
 
 	this._observers = [];
 
@@ -20,17 +19,6 @@ var DinnerModel = function() {
 		for (o = 0; o < this._observers.length; o++) {
 			this._observers[o].update(args);
 		}
-	}
-
-
-	this.addChange = function() {
-
-		nrChanges++;
-	}
-
-	this.getChanges = function(){
-		return nrChanges;
-
 	}
 
 	this.setNumberOfGuests = function(num) {

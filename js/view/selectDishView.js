@@ -22,7 +22,7 @@ var SelectDishView = function (container, model, viewController) {
 		}
 
 		var searchText = $('#searchField').val();
-		console.log("mitt search = ", searchText);
+
 
 		var list = model.getAllDishes(value, searchText);
 
@@ -55,7 +55,6 @@ var SelectDishView = function (container, model, viewController) {
 		}
 
 		var searchText = $('#searchField').val();
-		console.log("mitt search = ", searchText);
 
 		var field = "<h4>Select dish</h4><hr>"
 

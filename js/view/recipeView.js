@@ -64,9 +64,6 @@ var RecipeView = function (container, model, viewController) {
 	
 	this.update = function() {
 		createRecipeView();
-		console.log("update recipewindow");
-		console.log(model.getChanges());
-
 	}
 	
 	createRecipeView(); // Initialize
