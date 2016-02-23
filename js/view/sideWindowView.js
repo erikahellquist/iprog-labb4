@@ -18,6 +18,7 @@ var SideWindowView = function (container, model, viewController) {
 		numberOfGuests.html(model.getNumberOfGuests());
 
 		var string = "<br>";
+		var bool = true;
 
 		var menu = model.getFullMenu()
 
@@ -26,6 +27,7 @@ var SideWindowView = function (container, model, viewController) {
 
 			if (dish.id == model.getSelectedDishId()) {
 				string += "<div class='row current' id='" + dish.id + "'>"
+				bool = false;
 			}
 			else {
 				string += "<div class='row noncurrent' id='" + dish.id + "'>"
@@ -34,11 +36,18 @@ var SideWindowView = function (container, model, viewController) {
 			string += dish.name
 			string += "<span class='right glyphicon glyphicon-trash' id='trash" + dish.id + "'></span>"
 			string += "<span class='right price'>"+ model.getDishGuestPrice(dish.id) + "</span>"
-			
+			string += "</div>"
+		}
+
+		if (bool == true) {
+			string += "<div class='row current'>"
+			string += "<span class='left'>" + model.getNumberOfGuests() + "</span>"
+			string += "Pending"
+			string += "<span class='right price'>"+ model.getDishGuestPrice(model.getSelectedDishId()) + "</span>"
 			string += "</div>"
 
-			
 		}
+
 
 		string += "<hr><span class='right price'>SEK " + model.getTotalMenuPrice() + "</span><br><br>"
 

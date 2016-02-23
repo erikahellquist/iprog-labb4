@@ -6,6 +6,7 @@ var DinnerModel = function() {
 	var numberOfGuests = 2;
 	var selectedDishId = 1;
 	var menu = [1, 100, 200];
+	var pendingPrice = 0;
 
 	this._observers = [];
 
@@ -38,7 +39,25 @@ var DinnerModel = function() {
 
 	this.setSelectedDishId = function(id) {
 		selectedDishId = id;
+		if (this.idInMenu() == false) {
+			pendingPrice = this.getDishGuestPrice(id);
+		}
+		else {
+			pendingPrice = 0;
+		}
 		this.notifyObservers();
+	}
+
+	this.idInMenu = function() {
+		for (d in menu) {
+			if (menu[d] == selectedDishId) {
+				//console.log("id: ", menu[d]);
+				//console.log("selID: ", selectedDishId);
+				return true;
+			} 
+		}
+		//console.log("returned false");
+		return false;
 	}
 
 	/*//Returns the dish that is on the menu for selected type 
@@ -56,6 +75,15 @@ var DinnerModel = function() {
 		}
 	}*/
 
+	this.getPendingPrice = function() {
+		return pendingPrice;
+	}
+
+	this.setPendingPrice = function(price) {
+		pendingPrice = price;
+		this.notifyObservers();
+	}
+
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
 		return menu;
@@ -72,8 +100,22 @@ var DinnerModel = function() {
 		for (i in menu) {
 			price = price + this.getDishGuestPrice(menu[i]);
 		}
+		if (this.idInMenu() == false) {
+			price += pendingPrice;
+		}
+		
 		return price;
 	}
+
+	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
+	this.getConfirmedMenuPrice = function() {
+		var price = 0;
+		for (i in menu) {
+			price = price + this.getDishGuestPrice(menu[i]);
+		}
+		return price;
+	}
+
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
