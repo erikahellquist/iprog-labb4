@@ -31,6 +31,7 @@ var ViewController = function(model) {
 		$("#selectDishView").hide();
 		$("#dinnerPrepView").hide();
 		$("#recipeView").hide();
+		model.setSelectedDishId(1);
 		$("#dinnerView").show();
 	}
 
