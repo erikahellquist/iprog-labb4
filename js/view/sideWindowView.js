@@ -45,6 +45,15 @@ var SideWindowView = function (container, model, viewController) {
 			string += "Pending"
 			string += "<span class='right price'>"+ model.getDishGuestPrice(model.getSelectedDishId()) + "</span>"
 			string += "</div>"
+		}
+
+
+		if (model.idInMenu() == true) {
+
+			string += "<div class='row noncurrent'>"
+			string += "Pending"
+			string += "<span class='right price'>"+ model.getPendingPrice() + "</span>"
+			string += "</div>"
 
 		}
 
