@@ -11,6 +11,7 @@ var ViewController = function(model) {
 	
 
 	this.showSelectDish = function() {
+		$("#dinnerView").hide();
 		$("#homePage").hide();
 		$("#header").show();
 		$("#sideWindowView").show();
@@ -19,6 +20,7 @@ var ViewController = function(model) {
 
 
 	this.showRecipeView = function() {
+		$("#dinnerView").hide();
 		$("#selectDishView").hide();
 		$("#sideWindowView").show();
 		$("#recipeView").show();
