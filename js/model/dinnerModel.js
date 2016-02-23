@@ -40,23 +40,29 @@ var DinnerModel = function() {
 	this.setSelectedDishId = function(id) {
 		selectedDishId = id;
 		if (this.idInMenu() == false) {
-			pendingPrice = this.getDishGuestPrice(id);
+			pendingPrice = this.getDishGuestPrice(id) * numberOfGuests;
 		}
 		else {
+			pendingPrice = 0;
+		}
+
+		if (id == undefined) {
 			pendingPrice = 0;
 		}
 		this.notifyObservers();
 	}
 
 	this.idInMenu = function() {
+
+		if (selectedDishId == undefined) {
+			return false;
+		}
+
 		for (d in menu) {
 			if (menu[d] == selectedDishId) {
-				//console.log("id: ", menu[d]);
-				//console.log("selID: ", selectedDishId);
 				return true;
 			} 
 		}
-		//console.log("returned false");
 		return false;
 	}
 
@@ -79,10 +85,10 @@ var DinnerModel = function() {
 		return pendingPrice;
 	}
 
-	this.setPendingPrice = function(price) {
+	/*this.setPendingPrice = function(price) {
 		pendingPrice = price;
 		this.notifyObservers();
-	}
+	}*/
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {

@@ -12,7 +12,7 @@ var DinnerView = function (container, model) {
 
 	
 	createDinnerView = function() {
-
+		
 		numberOfGuests.html(model.getNumberOfGuests());
 
 
