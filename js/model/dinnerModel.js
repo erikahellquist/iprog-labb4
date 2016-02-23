@@ -4,7 +4,6 @@ var DinnerModel = function() {
 	//Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 	var numberOfGuests = 2;
-	var numberOfDishes = 3;
 	var selectedDishId = 1;
 	var menu = [1, 100, 200];
 	var nrChanges = 0;
@@ -19,9 +18,7 @@ var DinnerModel = function() {
 	/* With inspiration from lecture notes */
 	this.notifyObservers = function(args) {
 		for (o = 0; o < this._observers.length; o++) {
-			console.log("o=",o);
 			this._observers[o].update(args);
-			//console.log("o=",o);
 		}
 	}
 
