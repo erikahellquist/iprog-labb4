@@ -28,7 +28,7 @@ var RecipeView = function (container, model, viewController) {
 		dishDisc = dishDisc + "<br>"
 		dishDisc = dishDisc + dish.description
 		dishDisc = dishDisc + "<br><br>"
-		dishDisc = dishDisc + "<button type= 'button' class= 'btn-default btn-block'> Go back to Select Dish </button>"
+		dishDisc = dishDisc + "<button type= 'button' class= 'btn-default btn-block' id = 'backButton'> Go back to Select Dish </button>"
 		dishDisc = dishDisc + "<br><br><br><br>"
 		leftSide.html(dishDisc)
 		
@@ -42,7 +42,7 @@ var RecipeView = function (container, model, viewController) {
 		totalpris = 0
 		for(i = 0; i < dish.ingredients.length; i++)
 		{
-			dishDisc = dishDisc +"	" +  dish.ingredients[i].quantity
+			dishDisc = dishDisc +"	" +  dish.ingredients[i].quantity * model.getNumberOfGuests()
 			dishDisc = dishDisc +"	" +  dish.ingredients[i].unit
 			dishDisc = dishDisc +"	" +  dish.ingredients[i].name
 			dishDisc = dishDisc +"<span class='right'>SEK " +  dish.ingredients[i].price * model.getNumberOfGuests()
