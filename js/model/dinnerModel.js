@@ -41,7 +41,7 @@ var DinnerModel = function() {
 		this.notifyObservers();
 	}
 
-	//Returns the dish that is on the menu for selected type 
+	/*//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
 		if (type == "starter") {
 			return this.getDish(menu[0]);
@@ -54,7 +54,7 @@ var DinnerModel = function() {
 		else if (type == "dessert") {
 			return this.getDish(menu[2]);
 		}
-	}
+	}*/
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
