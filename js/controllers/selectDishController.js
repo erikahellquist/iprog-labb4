@@ -18,7 +18,6 @@ var GoToRecipeController = function(model, viewController, id) {
 	});
 }
 
-
 var DropdownController = function(model) {
 
 	$("#selectList").click(function(){
@@ -28,5 +27,15 @@ var DropdownController = function(model) {
 
 		model.notifyObservers();
 
+	});
+}
+
+var SearchFieldController = function(model) {
+
+	$("#searchFieldButton").click(function(){
+		var choice = $('#searchField').val();
+
+
+		model.notifyObservers();
 	});
 }

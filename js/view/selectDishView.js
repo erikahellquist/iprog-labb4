@@ -56,10 +56,10 @@ var SelectDishView = function (container, model, viewController) {
 
 		// Searchfield
 		field += "<div class='col-md-4'>"
-		field += "<div class='input-group'>"
+		field += "<div class='input-group' id='searchField'>"
 		field += "<input type='text' class='form-control' placeholder='Enter key words'>"
 		field += "<span class='input-group-btn'>"
-		field += "<button class='btn btn-default' type='button'>Search</button>"
+		field += "<button class='btn btn-default' id='searchFieldButton' type='button'>Search</button>"
 		field += "</span></div></div>"
 
 
@@ -78,6 +78,7 @@ var SelectDishView = function (container, model, viewController) {
 		$('#selectList').val(currentChoice);
 
 		dropdownController = new DropdownController(model);
+		searchFieldController = new searchFieldController(model);
 	}
 
 
