@@ -23,8 +23,8 @@ var ChooseSelectedDishController = function(model, viewController, id) {
 
 	$(dish).click(function(){
 		model.setSelectedDishId(id);
-		//viewController.showRecipe(id);
-		console.log("Here we would go to", id);
+		viewController.showRecipeView(id);
+		//console.log("Here we would go to", id);
 
 	});
 
