@@ -35,6 +35,10 @@ var SelectDishView = function (container, model, viewController) {
 			dishList = dishList + "<br></div>"
 		}
 
+		if (list.length == 0) {
+			dishList += "Unfortunately there was no results matching your search.<br><br><br>"
+		}
+
 		allDishes.html(dishList);    
 
 
