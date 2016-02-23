@@ -33,9 +33,12 @@ var DropdownController = function(model) {
 var SearchFieldController = function(model) {
 
 	$("#searchFieldButton").click(function(){
-		var choice = $('#searchField').val();
+		var value = $('#searchField').val();
+		console.log("i SearchFieldController, mitt field = ", value);
 
+		$('#searchField').val(value);
 
 		model.notifyObservers();
 	});
 }
+

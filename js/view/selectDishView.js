@@ -21,7 +21,10 @@ var SelectDishView = function (container, model, viewController) {
 			value = "main dish";
 		}
 
-		var list = model.getAllDishes(value);
+		var searchText = $('#searchField').val();
+		console.log("mitt search = ", searchText);
+
+		var list = model.getAllDishes(value, searchText);
 
 		for (i = 0; i < list.length; i++) {
 			dish = list[i];
@@ -51,13 +54,15 @@ var SelectDishView = function (container, model, viewController) {
 			currentChoice = 'all';
 		}
 
+		var searchText = $('#searchField').val();
+		console.log("mitt search = ", searchText);
 
 		var field = "<h4>Select dish</h4><hr>"
 
 		// Searchfield
 		field += "<div class='col-md-4'>"
-		field += "<div class='input-group' id='searchField'>"
-		field += "<input type='text' class='form-control' placeholder='Enter key words'>"
+		field += "<div class='input-group'>"
+		field += "<input type='text' id='searchField' class='form-control' placeholder='Enter key words'>"
 		field += "<span class='input-group-btn'>"
 		field += "<button class='btn btn-default' id='searchFieldButton' type='button'>Search</button>"
 		field += "</span></div></div>"
@@ -76,9 +81,11 @@ var SelectDishView = function (container, model, viewController) {
 
 
 		$('#selectList').val(currentChoice);
+		$('#searchField').val(searchText);
+
 
 		dropdownController = new DropdownController(model);
-		searchFieldController = new searchFieldController(model);
+		searchFieldController = new SearchFieldController(model);
 	}
 
 
