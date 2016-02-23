@@ -135,6 +135,10 @@ var DinnerModel = function() {
 				found = true;
 			}
 		}
+		if (type == "all") {
+			return found
+		}
+
 	  	return dish.type == type && found;
 	  });	
 	}

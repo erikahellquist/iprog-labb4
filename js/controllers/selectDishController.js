@@ -15,8 +15,18 @@ var GoToRecipeController = function(model, viewController, id) {
 	$(dish).click(function(){
 		model.setSelectedDishId(id);
 		viewController.showRecipeView(id);
-		console.log("Here we would go to recipe", id);
+	});
+}
+
+
+var DropdownController = function(model) {
+
+	$("#selectList").click(function(){
+		var choice = $('#selectList').val();
+
+		$("#selectList select").val(choice);
+
+		model.notifyObservers();
 
 	});
-
 }
