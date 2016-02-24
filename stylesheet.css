@@ -19,6 +19,9 @@ hr {
 	border-color:black;
 }
 
+.inner {
+	white-space:nowrap;
+}
 .lower {
     position: absolute;
     bottom: 0;

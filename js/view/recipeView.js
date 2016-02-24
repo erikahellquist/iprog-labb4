@@ -55,7 +55,7 @@ var RecipeView = function (container, model, viewController) {
 			}
 			dishDisc = dishDisc + "<hr>"
 	
-			rightSideLower.html("<span class='right'>SEK : " + totalpris + "</span><br><br>")
+			rightSideLower.html("<span class='inner'>SEK : " + totalpris + "</span><br><br>")
 			
 			rightSideUpper.html(dishDisc)
 			
