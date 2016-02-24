@@ -128,18 +128,9 @@ var DinnerModel = function() {
 	this.addDishToMenu = function(id) {
 		var dish = this.getDish(id);
 
-		if (dish.type == "starter") {
-			menu[0] = dish.id;
-		}
-			
-		else if (dish.type == "main") {
-			menu[1] = dish.id;
-		}
-			
-		else if (dish.type == "dessert") {
-			menu[2] = dish.id;
-		}
-
+		//Sortera beroende på type
+		menu.push(id);
+		
 		this.notifyObservers();
 	}
 

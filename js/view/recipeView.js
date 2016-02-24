@@ -6,9 +6,11 @@ var RecipeView = function (container, model, viewController) {
 	var dishIdContainer = this.dishId = container.find("#dishId");
 	var dishNameContainer = this.dishName = container.find("#dishName")
 	var leftSide = this.leftSide = container.find("#inner")
-	var rightSide = this.rightSide = container.find("#rightHalf")
+	var rightSideUpper = this.rightSideUpper = container.find("#rightInnerUpper")
+	var rightSideLower= this.rightSideLower = container.find("#rightInnerLower")
 	var lower = this.lower = container.find("#lowerHalf")
 	var backButton = this.backButton = container.find("#backButton")
+	var confirmButton = this.confirmButton = container.find("#confirmButton")
 
 	var createRecipeView = function() {
 
@@ -30,11 +32,11 @@ var RecipeView = function (container, model, viewController) {
 			dishDisc = dishDisc + "<br>"
 			dishDisc = dishDisc + dish.description
 			dishDisc = dishDisc + "<br><br>"
-//dishDisc = dishDisc + "<button type= 'button' class= 'btn-default btn-block' id = 'backButton'> Go back to Select Dish </button>"
+			//dishDisc = dishDisc + "<button type= 'button' class= 'btn-default btn-block' id = 'backButton'> Go back to Select Dish </button>"
 			dishDisc = dishDisc + "<br><br><br><br>"
 			leftSide.html(dishDisc)
 			
-			backButton = this.backButton = container.find("#backButton")
+			//backButton = this.backButton = container.find("#backButton")
 			
 			
 			//Creating the html for the top right side of the screen
@@ -52,10 +54,10 @@ var RecipeView = function (container, model, viewController) {
 				totalpris = totalpris + dish.ingredients[i].price * model.getNumberOfGuests()
 			}
 			dishDisc = dishDisc + "<hr>"
-			dishDisc = dishDisc + "<a href=" + "selectDish.html" +"><button type= " +"button" +" class= " +"btn-default btn-block" +"> Confirm dish </button></a>"
-			dishDisc = dishDisc + "<span class='right'>SEK : " + totalpris + "</span><br><br>"
+	
+			rightSideLower.html("<span class='right'>SEK : " + totalpris + "</span><br><br>")
 			
-			rightSide.html(dishDisc)
+			rightSideUpper.html(dishDisc)
 			
 			
 			dishDisc = "<h2> Preparation </h2><br>"

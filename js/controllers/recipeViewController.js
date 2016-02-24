@@ -4,4 +4,11 @@ var RecipeViewController = function(view, model ,viewController) {
 		console.log("I backButton-funk");
 		viewController.showSelectDish();
 	});
-}
+	
+	view.confirmButton.click(function(){
+		console.log("I confirm-funk");
+		viewController.showSelectDish();
+		dishId = model.getSelectedDishId();
+		model.addDishToMenu(dishId);
+	});
+	}
