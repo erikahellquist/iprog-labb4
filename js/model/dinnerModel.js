@@ -4,7 +4,7 @@ var DinnerModel = function() {
 	//Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 	var numberOfGuests = 2;
-	var selectedDishId = 1;
+	var selectedDishId = undefined;
 	var menu = [1, 100, 200];
 	var pendingPrice = 0;
 
@@ -39,7 +39,7 @@ var DinnerModel = function() {
 
 	this.setSelectedDishId = function(id) {
 		selectedDishId = id;
-		if (this.idInMenu() == false) {
+		if (this.selectedIdInMenu() == false) {
 			pendingPrice = this.getDishGuestPrice(id) * numberOfGuests;
 		}
 		else {
@@ -52,12 +52,21 @@ var DinnerModel = function() {
 		this.notifyObservers();
 	}
 
-	this.idInMenu = function() {
+	this.selectedIdInMenu = function() {
 
 		if (selectedDishId == undefined) {
 			return false;
 		}
 
+		for (d in menu) {
+			if (menu[d] == selectedDishId) {
+				return true;
+			} 
+		}
+		return false;
+	}
+
+	this.idInMenu = function(id) {
 		for (d in menu) {
 			if (menu[d] == selectedDishId) {
 				return true;
@@ -106,7 +115,7 @@ var DinnerModel = function() {
 		for (i in menu) {
 			price = price + this.getDishGuestPrice(menu[i]);
 		}
-		if (this.idInMenu() == false) {
+		if (this.selectedIdInMenu() == false) {
 			price += pendingPrice;
 		}
 		
@@ -128,8 +137,11 @@ var DinnerModel = function() {
 	this.addDishToMenu = function(id) {
 		var dish = this.getDish(id);
 
+		if (this.idInMenu(id) == false) {
+			menu.push(id);
+		}
+
 		//Sortera beroende på type
-		menu.push(id);
 		
 		this.notifyObservers();
 	}

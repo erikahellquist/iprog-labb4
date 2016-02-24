@@ -40,10 +40,10 @@ var SideWindowView = function (container, model, viewController) {
 		}
 
 		//console.log("getSelectedDishId", model.getSelectedDishId());
-		//console.log("id in menu", model.idInMenu());
+		//console.log("id in menu", model.selectedIdInMenu());
 		//console.log("bool: ", bool);
 
-		if (model.idInMenu() != true && model.getSelectedDishId() != undefined) {	// if not already in menu but not undefined
+		if (model.selectedIdInMenu() != true && model.getSelectedDishId() != undefined) {	// if not already in menu but not undefined
 			string += "<div class='row current'>"
 			string += "<span class='left'>" + model.getNumberOfGuests() + "</span>"
 			string += "Pending"
@@ -51,7 +51,7 @@ var SideWindowView = function (container, model, viewController) {
 			string += "<span class='right price'>"+ model.getPendingPrice() + "</span>"
 			string += "</div>"
 		}
-		else if (model.idInMenu() == true || model.getSelectedDishId() == undefined) {	// if in menu or undefined
+		else if (model.selectedIdInMenu() == true || model.getSelectedDishId() == undefined) {	// if in menu or undefined
 
 			string += "<div class='row noncurrent'>"
 			string += "Pending"
