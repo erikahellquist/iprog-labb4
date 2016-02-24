@@ -12,6 +12,7 @@ var ViewController = function(model) {
 
 	this.showSelectDish = function() {
 		$("#dinnerView").hide();
+		$("#recipeView").hide();
 		$("#homePage").hide();
 		$("#header").show();
 		$("#sideWindowView").show();
