@@ -140,8 +140,6 @@ var DinnerModel = function() {
 		if (this.idInMenu(id) == false) {
 			menu.push(id);
 		}
-
-		//Sortera beroende på type
 		
 		this.notifyObservers();
 	}
