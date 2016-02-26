@@ -5,7 +5,7 @@ var DinnerModel = function() {
 	// and selected dinner options for dinner menu
 	var numberOfGuests = 2;
 	var selectedDishId = undefined;
-	var menu = [1, 100, 200];
+	var menu = [];
 	var pendingPrice = 0;
 
 	this._observers = [];

@@ -21,6 +21,7 @@ hr {
 
 .inner {
 	white-space:nowrap;
+/*	display: inline-block;*/
 }
 .lower {
     position: absolute;
