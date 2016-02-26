@@ -33,7 +33,7 @@ var RecipeView = function (container, model, viewController) {
 			dishDisc = dishDisc + dish.description
 			dishDisc = dishDisc + "<br><br>"
 			//dishDisc = dishDisc + "<button type= 'button' class= 'btn-default btn-block' id = 'backButton'> Go back to Select Dish </button>"
-			dishDisc = dishDisc + "<br><br><br><br>"
+			//	dishDisc = dishDisc + "<br><br><br><br>"
 			leftSide.html(dishDisc)
 			
 			//backButton = this.backButton = container.find("#backButton")
@@ -55,7 +55,7 @@ var RecipeView = function (container, model, viewController) {
 			}
 			dishDisc = dishDisc + "<hr>"
 	
-			rightSideLower.html("<span class='inner'>SEK : " + totalpris + "</span><br><br>")
+			rightSideLower.html("<span class='inner right'>SEK : " + totalpris + "</span><br><br>")
 			
 			rightSideUpper.html(dishDisc)
 			
