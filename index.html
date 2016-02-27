@@ -11,12 +11,7 @@
     <link rel="stylesheet" href="stylesheet.css">
 
   </head>
-  <body>
-
-
-
-
-
+<body>
 	<div class="container-fluid" id="homePage">
 		<div class="row">
 			<div class="col-md-12" id="headerHomePage">
@@ -34,20 +29,108 @@
 
 					<br><br>
 					<p>start quickly</p>
-					<a href="selectDish.html"><button type="button" class="btn btn-default"><h4>Create new dinner</h4></button></a>
+					<button type="button" class="btn btn-default" id = "createButton"><h4>Create new dinner</h4></button>
 				</div>
 			</div>
 		</div>
 	</div>
+	
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12" id="header">
+				<font size="10"><b>HOMELETTE</b></font> <i>From the best chefs in the world directly into your kitchen</i>
+			</div>
+		</div>
+		
+
+		<div class="row">
+			<div class="col-md-2" id="sideWindowView">
+				<h4>My dinner</h4>
+				<div class="row">
+					<div class="col-md-12">
+						People: <span id="numberOfGuests"></span><br>
+						<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+						<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button><br>
+						<br>
+						<div class="row">
+							<div class="col-md-12" id="mini">
+								<b><span class='left'>Dish Name</span> <span class='right'>Cost</span></b>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12" id="menu">
+							</div>
+							<button type='button' id = 'confirmDinner' class='btn-default btn-block'>Confirm dinner</button><br>
+						</div>
+					</div>
+				</div>
+			</div>
 
 
+			<div class="col-md-10" id="recipeView">
+				<div class="row">	
+					<div class="col-md-12">
+						<div class = "col-md-6" id="leftHalf">
+						<span id = "inner"> </span>
+						
+						<button type= 'button' class= 'btn-default' id = "backButton"> Go back to Select Dish </button><br><br>
+						</div>
 
+						<div class= "col-md-6" id="rightHalf">
+						<span class = "inner" id = "rightInnerUpper"> </span>
+						<button type = "button" class= "btn-default" id = "confirmButton">  Confirm dish </button>
+						<span class = "inner" id = "rightInnerLower"> </span>
+						<br>
+						</div>
+					</div>
+				</div>
+				
+				<div class = "row">
+					<div class = "col-md-12" id = "lowerHalf">
+					</div>
+				</div>
+			</div>
 
+		<div class="col-md-10" id="selectDishView">
+			<div class="row">
+				<div class="col-md-12" id="searchBar">
+				</div>
+			</div>
 
+			<div class="row">
+				<div class="col-md-12" id="mainWindow">
+					<span id="allDishes"></span><br>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row" id="dinnerView">
+			<div class="row">	
+				<div class="col-md-12" id="dinnerBar">
+					<h2>My dinner: <span id="numberOfGuests"></span> people</h2>
+					<span class='right'><button type="button" id='goBack' class="btn btn-default">Go back and edit dinner</button></a></span>
+				</div>
 
+				<div class="col-md-12" id="dinnerListing">
+				</div>
+				<center><button type='button' id='goToPrep' class='btn btn-default' style='width:300px;'>Print full recipe</button></center>
+			</div>
 
+		</div>
+		
+		<div class="row" id="dinnerPrepView">
+			<div class="row">	
+				<div class="col-md-12" id="dinnerBar">
+					<h2>My dinner: <span id="numberOfGuests"></span> people</h2>
+					<span class='right'><button type="button" id='goToDinner' class="btn btn-default">Go back and edit dinner</button></span>
+				</div>
 
+				<div class="col-md-12" id="prepView">	
+				</div>
+		</div>
 
+	</div>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
@@ -62,8 +145,15 @@
 	<script src="js/view/recipeView.js"></script>
 	<script src="js/view/dinnerView.js"></script>
 	<script src="js/view/dinnerPrepView.js"></script>
+	<script src="js/view/homepageView.js"></script>
 
+	<script src="js/controllers/viewController.js"></script>
 	<script src="js/controllers/sideWindowController.js"></script>
+	<script src="js/controllers/homepageViewController.js"></script>
+	<script src="js/controllers/selectDishController.js"></script>
+	<script src="js/controllers/dinnerViewController.js"></script>
+	<script src="js/controllers/dinnerPrepController.js"></script>
+	<script src="js/controllers/recipeViewController.js"></script>
 
   </body>
 </html>
