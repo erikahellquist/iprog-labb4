@@ -1,6 +1,8 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
  
+	var APIKEY = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu"
+
 	//Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 	var numberOfGuests = 1;
@@ -20,6 +22,7 @@ var DinnerModel = function() {
 		for (o = 0; o < this._observers.length; o++) {
 			this._observers[o].update(args);
 		}
+		console.log("notify");
 	}
 
 	this.setNumberOfGuests = function(num) {
@@ -74,21 +77,6 @@ var DinnerModel = function() {
 		}
 		return false;
 	}
-
-	/*//Returns the dish that is on the menu for selected type 
-	this.getSelectedDish = function(type) {
-		if (type == "starter") {
-			return this.getDish(menu[0]);
-		}
-			
-		else if (type == "main") {
-			return this.getDish(menu[1]);
-		}
-			
-		else if (type == "dessert") {
-			return this.getDish(menu[2]);
-		}
-	}*/
 
 	this.getPendingPrice = function() {
 		/*return pendingPrice;*/
@@ -182,7 +170,7 @@ var DinnerModel = function() {
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	this.getAllDishes = function (type,filter) {
+	/*this.getAllDishes = function (type,filter) {
 	  return $(dishes).filter(function(index,dish) {
 		var found = true;
 		if(filter){
@@ -203,7 +191,49 @@ var DinnerModel = function() {
 
 	  	return dish.type == type && found;
 	  });	
+	}*/
+
+
+	this.getAllDishes = function(type, filter) {
+
+						// exempel: http://api.bigoven.com/documentation/serialization-formats
+						// sökning: http://api.bigoven.com/documentation/recipe-search-results
+		//alert("hej");
+		$.ajax({
+			type: 'GET', 
+			url: 'http://api.bigoven.com/recipes?pg=1&rpp=11&api_key=' + APIKEY,
+			dataType:'json',
+			//data: {RecipeID: 167511},
+			headers: {"Accept":"application/json"},
+
+			success: function(data) { 
+         		console.log("All data: ", data);
+
+         		this.notifyObservers(["allDishes", data.Results]);				// som i labblydelsen
+         		//console.log("mina resultat: ", data.Results);
+
+			}.bind(this),		// so that calling this.notifyObservers works
+
+  			error: function(xhr,status,error) {
+  			    console.error(error); 
+ 	 		}.bind(this), 
+
+ 	 		//return data.Results;
+ 		})
+  		
 	}
+
+
+
+
+
+
+
+
+
+
+
+
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {

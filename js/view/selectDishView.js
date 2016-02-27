@@ -9,7 +9,7 @@ var SelectDishView = function (container, model, viewController) {
 	var allDishes = this.allDishes = container.find("#mainWindow");
 	var searchBar = this.searchBar = container.find("#searchBar");
 
-	createSelectDishView = function() {
+	createSelectDishView = function(list) {
 
 		createSearchView();
 
@@ -24,27 +24,37 @@ var SelectDishView = function (container, model, viewController) {
 		var searchText = $('#searchField').val();
 
 
-		var list = model.getAllDishes(value, searchText);
+		//var list = model.getAllDishes(value, searchText);
+		console.log("list = ", list);
+		//list = dishes;
 
-		for (i = 0; i < list.length; i++) {
-			dish = list[i];
-			dishList = dishList + "<div class='col-md-3 dish' id='goTo" + dish.id + "'>"
-			dishList = dishList + "<img src='images/" + dish.image + "'></img>"
-			dishList = dishList + "<span class='title'><h4>" + dish.name + "</h4></span>"
-			dishList = dishList + "<br><span class='description'>" + dish.description + "</span>"
-			dishList = dishList + "<br></div>"
+
+		if (list != undefined) {
+
+			for (i = 0; i < list.length; i++) {
+				dish = list[i];
+				//console.log("dish: ", dish);
+				dishList = dishList + "<div class='col-md-3 dish' id='goTo" + dish.RecipeID + "'>"
+				dishList = dishList + "<img src='" + dish.ImageURL + "'></img>"
+				dishList = dishList + "<span class='title'><h4>" + dish.Title + "</h4></span>"
+				//dishList = dishList + "<br><span class='description'>" + dish.Description + "</span>"
+				dishList = dishList + "<br></div>"
+			}
+
+			if (list.length == 0) {
+				dishList += "Unfortunately there was no results matching your search.<br><br><br>"
+			}
+
+			allDishes.html(dishList);    
+
+
+			for (k = 0; k < list.length; k++) {
+				dish = list[k];
+				var controller = new GoToRecipeController(model, viewController, dish.RecipeID);
+			}
 		}
-
-		if (list.length == 0) {
-			dishList += "Unfortunately there was no results matching your search.<br><br><br>"
-		}
-
-		allDishes.html(dishList);    
-
-
-		for (k = 0; k < list.length; k++) {
-			dish = list[k];
-			var controller = new GoToRecipeController(model, viewController, dish.id);
+		else {
+			allDishes.html("Error");
 		}
 
 	}
@@ -92,11 +102,19 @@ var SelectDishView = function (container, model, viewController) {
 	}
 
 
-	this.update = function() {
-		createSelectDishView();
+	this.update = function(args) {
+		if (args) {
+			for (i = 0; i < args.length; i++) {
+				if (args[i] == "allDishes") {
+					createSelectDishView(args[i+1]);
+					break;
+				}
+			}
+		}
 	}
 	
 	createSelectDishView(); // Initialization     
+	model.getAllDishes();
                            
 
 }

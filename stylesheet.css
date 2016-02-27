@@ -131,6 +131,7 @@ html, body, .container-fluid {
 .dish {
 	vertical-align: top;
     display: inline-block;
+    height: 350px;
 }
 
 .dish img, #dishList img {
