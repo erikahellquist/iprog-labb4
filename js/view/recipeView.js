@@ -49,9 +49,9 @@ var RecipeView = function (container, model, viewController) {
 				dishDisc = dishDisc +"	" +  dish.ingredients[i].quantity * model.getNumberOfGuests()
 				dishDisc = dishDisc +"	" +  dish.ingredients[i].unit
 				dishDisc = dishDisc +"	" +  dish.ingredients[i].name
-				dishDisc = dishDisc +"<span class='right'>SEK " +  dish.ingredients[i].price * model.getNumberOfGuests()
+				dishDisc = dishDisc +"<span class='right'>SEK " +  dish.ingredients[i].quantity * dish.ingredients[i].price * model.getNumberOfGuests()
 				dishDisc = dishDisc + "</span><br>"
-				totalpris = totalpris + dish.ingredients[i].price * model.getNumberOfGuests()
+				totalpris = totalpris + dish.ingredients[i].quantity * dish.ingredients[i].price * model.getNumberOfGuests()
 			}
 			dishDisc = dishDisc + "<hr>"
 	

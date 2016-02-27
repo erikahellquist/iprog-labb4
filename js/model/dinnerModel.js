@@ -3,7 +3,7 @@ var DinnerModel = function() {
  
 	//Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
-	var numberOfGuests = 2;
+	var numberOfGuests = 1;
 	var selectedDishId = undefined;
 	var menu = [];
 	var pendingPrice = 0;
@@ -40,7 +40,7 @@ var DinnerModel = function() {
 	this.setSelectedDishId = function(id) {
 		selectedDishId = id;
 		if (this.selectedIdInMenu() == false) {
-			pendingPrice = this.getDishGuestPrice(id) * numberOfGuests;
+			pendingPrice = this.getDishGuestPrice(id); /* * numberOfGuests;*/
 		}
 		else {
 			pendingPrice = 0;
@@ -91,7 +91,11 @@ var DinnerModel = function() {
 	}*/
 
 	this.getPendingPrice = function() {
-		return pendingPrice;
+		/*return pendingPrice;*/
+		if (selectedDishId == undefined) {
+			return 0;
+		}
+		return this.getDishGuestPrice(selectedDishId);
 	}
 
 	/*this.setPendingPrice = function(price) {
@@ -115,8 +119,8 @@ var DinnerModel = function() {
 		for (i in menu) {
 			price = price + this.getDishGuestPrice(menu[i]);
 		}
-		if (this.selectedIdInMenu() == false) {
-			price += pendingPrice;
+		if (this.selectedIdInMenu() == false && selectedDishId != undefined) {
+			price += this.getDishGuestPrice(selectedDishId);
 		}
 		
 		return price;
@@ -195,7 +199,7 @@ var DinnerModel = function() {
 	  	for(key in dishes){
 			if(dishes[key].id == id) {
 				for (no in dishes[key].ingredients) {
-					price = price + dishes[key].ingredients[no].price;
+					price += dishes[key].ingredients[no].quantity * dishes[key].ingredients[no].price;
 				}
 				return price;
 			}
