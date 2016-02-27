@@ -135,15 +135,36 @@ var DinnerModel = function() {
 		return price;
 	}
 
-
+	//http://www.stoimen.com/blog/2010/07/09/friday-algorithms-javascript-bubble-sort/ Source
+	this.bubbleSort = function( a )
+	{
+		var b = a;
+		var swapped;
+		do {
+			swapped = false;
+			for (var i=0; i < (b.length) - 1; i++) {
+				if (b[i] > b[i+1]) {
+					var temp = b[i];
+					b[i] = b[i+1];
+					b[i+1] = temp;
+					swapped = true;
+				}
+			}
+		} 
+		while (swapped);
+		
+		return b;
+	}
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		var dish = this.getDish(id);
+		
 
 		if (this.idInMenu(id) == false) {
 			menu.push(id);
 		}
+		
+		menu= this.bubbleSort(menu);
 		
 		this.notifyObservers();
 	}
