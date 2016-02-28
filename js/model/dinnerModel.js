@@ -10,6 +10,9 @@ var DinnerModel = function() {
 	var menu = [];
 	var pendingPrice = 0;
 
+	var searchText = undefined;
+	var searchType = undefined;
+
 	this._observers = [];
 
 	/* With inspiration from lecture notes */
@@ -23,6 +26,33 @@ var DinnerModel = function() {
 			this._observers[o].update(args);
 		}
 		console.log("notify");
+	}
+
+	this.setSearchText = function(text) {
+		searchText = text;
+	}
+
+	this.getSearchText = function() {
+		return searchText;
+	}
+
+	this.setSearchType = function(type) {
+
+		if (type == "starter") {
+			type = "Starter"
+		}
+		else if (type == "mainDish") {
+			type = "Main Dish"
+		}
+		else if (type == "dessert") {
+			type = "Dessert"
+		}
+
+		searchType = type;
+	}
+
+	this.getSearchType = function() {
+		return searchType;
 	}
 
 	this.setNumberOfGuests = function(num) {
@@ -86,10 +116,6 @@ var DinnerModel = function() {
 		return this.getDishGuestPrice(selectedDishId);
 	}
 
-	/*this.setPendingPrice = function(price) {
-		pendingPrice = price;
-		this.notifyObservers();
-	}*/
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
@@ -198,10 +224,20 @@ var DinnerModel = function() {
 
 						// exempel: http://api.bigoven.com/documentation/serialization-formats
 						// sökning: http://api.bigoven.com/documentation/recipe-search-results
-		//alert("hej");
+		var urlString = "http://api.bigoven.com/recipes?pg=1&rpp=12&api_key=" + APIKEY;
+
+		if (searchText != '' && searchText != undefined) {
+			urlString += "&title_kw=" + searchText;
+		}
+
+		if (searchType != 'all' && searchType != undefined) {
+			urlString += "&any_kw=" + searchType;
+		}
+
+		//console.log(urlString);
 		$.ajax({
 			type: 'GET', 
-			url: 'http://api.bigoven.com/recipes?pg=1&rpp=11&api_key=' + APIKEY,
+			url: urlString,
 			dataType:'json',
 			//data: {RecipeID: 167511},
 			headers: {"Accept":"application/json"},

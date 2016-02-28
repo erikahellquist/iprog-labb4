@@ -20,8 +20,9 @@ var DropdownController = function(model) {
 		var choice = $('#selectList').val();
 
 		$("#selectList select").val(choice);
-
-		model.notifyObservers();
+		model.setSearchType(choice);
+		//model.notifyObservers();
+		model.getAllDishes();
 	});
 }
 
@@ -32,7 +33,10 @@ var SearchFieldController = function(model) {
 
 		$('#searchField').val(value);
 
-		model.notifyObservers();
+		model.setSearchText(value);
+
+		//model.notifyObservers();
+		model.getAllDishes();
 	});
 }
 

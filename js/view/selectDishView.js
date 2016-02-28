@@ -18,7 +18,7 @@ var SelectDishView = function (container, model, viewController) {
 		var value = $('#selectList').val();
 
 		if (value == "mainDish") {	// so it works with whitespace
-			value = "main dish";
+			value = "Main Dish";
 		}
 
 		var searchText = $('#searchField').val();
