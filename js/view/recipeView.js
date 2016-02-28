@@ -12,25 +12,25 @@ var RecipeView = function (container, model, viewController) {
 	var backButton = this.backButton = container.find("#backButton")
 	var confirmButton = this.confirmButton = container.find("#confirmButton")
 
-	var createRecipeView = function() {
+	var createRecipeView = function(dish) {
 
 		numberOfGuests.html(model.getNumberOfGuests());
 
 		dishId = model.getSelectedDishId()
 		dishIdContainer.html(dishId);
 		
-		dish  = model.getDish(dishId)
-		
+		//dish  = model.getDish(dishId)
+		console.log("dish: ", dish);
+		console.log("dishID: ", dishId)
 
 		if (dish != undefined) {
-			dishNameContainer.html(dish.name)
+			dishNameContainer.html(dish.Title)
 			
 			
-			
-			dishDisc = "<h1>" + dish.name + "</h1>"
-			dishDisc = dishDisc + "<img src='images/" + dish.image + "'></img><br>"
+			dishDisc = "<h1>" + dish.Title + "</h1>"
+			dishDisc = dishDisc + "<img src='" + dish.ImageURL + "'></img><br>"
 			dishDisc = dishDisc + "<br>"
-			dishDisc = dishDisc + dish.description
+			dishDisc = dishDisc + dish.Description
 			dishDisc = dishDisc + "<br><br>"
 			//dishDisc = dishDisc + "<button type= 'button' class= 'btn-default btn-block' id = 'backButton'> Go back to Select Dish </button>"
 			//	dishDisc = dishDisc + "<br><br><br><br>"
@@ -44,14 +44,14 @@ var RecipeView = function (container, model, viewController) {
 			dishDisc = "<h3> INGREDIENTS FOR " + model.getNumberOfGuests()+ " PEOPLE</h3>"
 			dishDisc = dishDisc + "<hr>"
 			totalpris = 0
-			for(i = 0; i < dish.ingredients.length; i++)
+			for(i = 0; i < dish.Ingredients.length; i++)
 			{
-				dishDisc = dishDisc +"	" +  dish.ingredients[i].quantity * model.getNumberOfGuests()
-				dishDisc = dishDisc +"	" +  dish.ingredients[i].unit
-				dishDisc = dishDisc +"	" +  dish.ingredients[i].name
-				dishDisc = dishDisc +"<span class='right'>SEK " +  dish.ingredients[i].quantity * dish.ingredients[i].price * model.getNumberOfGuests()
+				dishDisc = dishDisc +"	" +  dish.Ingredients[i].MetricQuantity * model.getNumberOfGuests()
+				dishDisc = dishDisc +"	" +  dish.Ingredients[i].MetricUnit
+				dishDisc = dishDisc +"	" +  dish.Ingredients[i].Name
+				dishDisc = dishDisc +"<span class='right'>SEK " +  dish.Ingredients[i].MetricQuantity * model.getNumberOfGuests()
 				dishDisc = dishDisc + "</span><br>"
-				totalpris = totalpris + dish.ingredients[i].quantity * dish.ingredients[i].price * model.getNumberOfGuests()
+				totalpris = totalpris + (dish.Ingredients[i].MetricQuantity * model.getNumberOfGuests())
 			}
 			dishDisc = dishDisc + "<hr>"
 	
@@ -61,14 +61,22 @@ var RecipeView = function (container, model, viewController) {
 			
 			
 			dishDisc = "<h2> Preparation </h2><br>"
-			dishDisc = dishDisc + dish.description
+			dishDisc = dishDisc + dish.Instructions
 			
 			lower.html(dishDisc)
 		}
 	}
 	
-	this.update = function() {
-		createRecipeView();
+	this.update = function(args) {
+		console.log("har vi args?", args);
+		if (args) {
+			for (i = 0; i < args.length; i++) {
+				if (args[i] == "getDish") {
+					createRecipeView(args[i+1]);
+					break;
+				}
+			}
+		}
 	}
 	
 	createRecipeView(); // Initialize

@@ -10,7 +10,9 @@ var GoToRecipeController = function(model, viewController, id) {
 
 	$(dish).click(function(){
 		model.setSelectedDishId(id);
-		viewController.showRecipeView(id);
+		console.log("selected id is", id);
+		viewController.showRecipeView();
+		model.getDish(id);
 	});
 }
 

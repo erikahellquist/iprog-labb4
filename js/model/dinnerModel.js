@@ -25,7 +25,7 @@ var DinnerModel = function() {
 		for (o = 0; o < this._observers.length; o++) {
 			this._observers[o].update(args);
 		}
-		console.log("notify");
+		//console.log("notify");
 	}
 
 	this.setSearchText = function(text) {
@@ -73,7 +73,7 @@ var DinnerModel = function() {
 	this.setSelectedDishId = function(id) {
 		selectedDishId = id;
 		if (this.selectedIdInMenu() == false) {
-			pendingPrice = this.getDishGuestPrice(id); /* * numberOfGuests;*/
+			//pendingPrice = this.getDishGuestPrice(id); /* * numberOfGuests;*/
 		}
 		else {
 			pendingPrice = 0;
@@ -243,7 +243,7 @@ var DinnerModel = function() {
 			headers: {"Accept":"application/json"},
 
 			success: function(data) { 
-         		console.log("All data: ", data);
+         	//	console.log("All data0: ", data);
 
          		this.notifyObservers(["allDishes", data.Results]);				// som i labblydelsen
          		//console.log("mina resultat: ", data.Results);
@@ -254,22 +254,41 @@ var DinnerModel = function() {
   			    console.error(error); 
  	 		}.bind(this), 
 
- 	 		//return data.Results;
  		})
+
+ 		//console.log(".....");
   		
 	}
 
+	//function that returns a dish of specific ID
+	this.getDish = function(id) {
+		//id = 167511;
 
+		var urlString = "http://api.bigoven.com/recipe/"+ id +"?api_key=" + APIKEY;
 
+		//console.log(urlString);
+		$.ajax({
+			type: 'GET', 
+			url: urlString,
+			dataType:'json',
+			headers: {"Accept":"application/json"},
 
+			success: function(data) { 
+         		console.log("All data1: ", data);
+         		this.notifyObservers(["getDish", data]);				// som i labblydelsen
+         		//console.log("mina resultat: ", data.Results);
+         		//return data;
 
+			}.bind(this),		// so that calling this.notifyObservers works
 
+  			error: function(xhr,status,error) {
+  			    console.error(error); 
+ 	 		}.bind(this), 
+ 		})
 
+	}
 
-
-
-
-
+	/*
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
@@ -278,7 +297,7 @@ var DinnerModel = function() {
 				return dishes[key];
 			}
 		}
-	}
+	}*/
 
 	//function that returns a price of specific dish with ID
 	this.getDishPrice = function (id) {
