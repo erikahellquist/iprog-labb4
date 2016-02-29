@@ -17,25 +17,25 @@ var DinnerPrepView = function (container, model) {
 		
 		var dishList = "";
 		var list = model.getFullMenu();
-
+		//console.log("list i dinnerprep: ", list)
 
 		for (i = 0; i < list.length; i++) {
-			dish = model.getDish(list[i])
-
+			dish = list[i]
+			console.log("dish i dinnerprep: ", dish);
 			dishList += "<div class='row' id='dishList'>"
 
 			dishList += "<div class='col-md-2'>"
-			dishList += "<img src='images/" + dish.image + "'></img>"
+			dishList += "<img src='" + dish.ImageURL + "'></img>"
 			dishList += "</div>"
 
 			dishList += "<div class='col-md-5'>"
-			dishList += "<h3>" + dish.name.toUpperCase() + "</h3>"
-			dishList += dish.description
+			dishList += "<h3>" + dish.Title + "</h3>"  // .toUpperCase()
+			dishList += dish.Description
 			dishList += "</div>"
 
 			dishList += "<div class='col-md-5'>"
 			dishList += "<h3>PREPARATION</h3>"
-			dishList += dish.description
+			dishList += dish.Instructions
 			dishList += "</div>"
 
 			dishList += "</div><br><br>"

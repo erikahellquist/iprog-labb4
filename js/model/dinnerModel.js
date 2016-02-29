@@ -6,7 +6,7 @@ var DinnerModel = function() {
 	//Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 	var numberOfGuests = 1;
-	var selectedDishId = undefined;
+	var selectedDish = undefined;
 	var menu = [];
 	var pendingPrice = 0;
 
@@ -66,20 +66,21 @@ var DinnerModel = function() {
 		return numberOfGuests;
 	}
 	
-	this.getSelectedDishId = function() {
-		return selectedDishId;
+	this.getSelectedDish = function() {
+		return selectedDish;
 	}
 
-	this.setSelectedDishId = function(id) {
-		selectedDishId = id;
+	this.setSelectedDish = function(object) {
+		selectedDish = object;
 		if (this.selectedIdInMenu() == false) {
-			//pendingPrice = this.getDishGuestPrice(id); /* * numberOfGuests;*/
+			pendingPrice = 10;
+			//pendingPrice = object.; /* * numberOfGuests;*/
 		}
 		else {
 			pendingPrice = 0;
 		}
 
-		if (id == undefined) {
+		if (object == undefined) {
 			pendingPrice = 0;
 		}
 		this.notifyObservers();
@@ -87,12 +88,12 @@ var DinnerModel = function() {
 
 	this.selectedIdInMenu = function() {
 
-		if (selectedDishId == undefined) {
+		if (selectedDish == undefined) {
 			return false;
 		}
 
 		for (d in menu) {
-			if (menu[d] == selectedDishId) {
+			if (menu[d] == selectedDish) {
 				return true;
 			} 
 		}
@@ -101,7 +102,7 @@ var DinnerModel = function() {
 
 	this.idInMenu = function(id) {
 		for (d in menu) {
-			if (menu[d] == selectedDishId) {
+			if (menu[d] == selectedDish) {
 				return true;
 			} 
 		}
@@ -110,10 +111,10 @@ var DinnerModel = function() {
 
 	this.getPendingPrice = function() {
 		/*return pendingPrice;*/
-		if (selectedDishId == undefined) {
+		if (selectedDish == undefined) {
 			return 0;
 		}
-		return this.getDishGuestPrice(selectedDishId);
+		return this.getDishGuestPrice(selectedDish);
 	}
 
 
@@ -133,8 +134,8 @@ var DinnerModel = function() {
 		for (i in menu) {
 			price = price + this.getDishGuestPrice(menu[i]);
 		}
-		if (this.selectedIdInMenu() == false && selectedDishId != undefined) {
-			price += this.getDishGuestPrice(selectedDishId);
+		if (this.selectedIdInMenu() == false && selectedDish != undefined) {
+			price += this.getDishGuestPrice(selectedDish);
 		}
 		
 		return price;
@@ -171,23 +172,23 @@ var DinnerModel = function() {
 	}
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
-	this.addDishToMenu = function(id) {
+	this.addDishToMenu = function(object) {
 		
-
-		if (this.idInMenu(id) == false) {
-			menu.push(id);
+		if (this.idInMenu(object.RecipeID) == false) {
+			menu.push(object);
 		}
+		console.log("add menu", menu);
 		
-		menu= this.bubbleSort(menu);
+	//	menu = this.bubbleSort(menu);
 		
 		this.notifyObservers();
 	}
 
 	//Removes dish from menu
-	this.removeDishFromMenu = function(id) {
-		for (d in menu) {
-			if (id == menu[d]) {
-				menu.splice(d, 1);
+	this.removeDishFromMenu = function(object) {
+		for (obj in menu) {
+			if (object.RecipeID == obj.RecipeID) {
+				menu.splice(obj, 1);
 			}
 		}
 		this.notifyObservers();
@@ -311,6 +312,7 @@ var DinnerModel = function() {
 			}
 		}
 	}
+
 
 	this.getDishGuestPrice = function (id) {
 		var price = this.getDishPrice(id);

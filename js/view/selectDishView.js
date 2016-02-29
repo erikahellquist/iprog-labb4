@@ -25,20 +25,16 @@ var SelectDishView = function (container, model, viewController) {
 
 
 		//var list = model.getAllDishes(value, searchText);
-		console.log("list = ", list);
-		//list = dishes;
-
+		//console.log("list = ", list);
 
 		if (list != undefined) {
 
 			for (i = 0; i < list.length; i++) {
 				dish = list[i];
-				//console.log("dish: ", dish);
-				dishList = dishList + "<div class='col-md-3 dish' id='goTo" + dish.RecipeID + "'>"
-				dishList = dishList + "<img src='" + dish.ImageURL + "'></img>"
-				dishList = dishList + "<span class='title'><h4>" + dish.Title + "</h4></span>"
-				//dishList = dishList + "<br><span class='description'>" + dish.Description + "</span>"
-				dishList = dishList + "<br></div>"
+				dishList += "<div class='col-md-3 dish' id='goTo" + dish.RecipeID + "'>"
+				dishList += "<img src='" + dish.ImageURL + "'></img>"
+				dishList += "<span class='title'><h4>" + dish.Title + "</h4></span>"
+				dishList += "<br></div>"
 			}
 
 			if (list.length == 0) {
@@ -50,7 +46,7 @@ var SelectDishView = function (container, model, viewController) {
 
 			for (k = 0; k < list.length; k++) {
 				dish = list[k];
-				var controller = new GoToRecipeController(model, viewController, dish.RecipeID);
+				var controller = new GoToRecipeController(model, viewController, dish);
 			}
 		}
 		else {

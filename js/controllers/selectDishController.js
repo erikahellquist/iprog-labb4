@@ -4,15 +4,15 @@ var SelectDishController = function(view, model, viewController) {
 
 }
 
-var GoToRecipeController = function(model, viewController, id) {
+var GoToRecipeController = function(model, viewController, dishObject) {
 
-	var dish = "#goTo" + id;
+	var dish = "#goTo" + dishObject.RecipeID;
 
 	$(dish).click(function(){
-		model.setSelectedDishId(id);
-		console.log("selected id is", id);
+		model.setSelectedDish(dishObject);
+	//	console.log("selected id of object is", dishObject.RecipeID);
 		viewController.showRecipeView();
-		model.getDish(id);
+		model.getDish(dishObject.RecipeID);
 	});
 }
 
@@ -23,7 +23,6 @@ var DropdownController = function(model) {
 
 		$("#selectList select").val(choice);
 		model.setSearchType(choice);
-		//model.notifyObservers();
 		model.getAllDishes();
 	});
 }
@@ -36,8 +35,6 @@ var SearchFieldController = function(model) {
 		$('#searchField').val(value);
 
 		model.setSearchText(value);
-
-		//model.notifyObservers();
 		model.getAllDishes();
 	});
 }

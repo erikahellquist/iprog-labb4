@@ -16,9 +16,10 @@ var RecipeView = function (container, model, viewController) {
 
 		numberOfGuests.html(model.getNumberOfGuests());
 
-		dishId = model.getSelectedDishId()
+		dishId = model.getSelectedDish()
 		dishIdContainer.html(dishId);
 		
+		''
 		//dish  = model.getDish(dishId)
 		console.log("dish: ", dish);
 		console.log("dishID: ", dishId)
@@ -34,6 +35,7 @@ var RecipeView = function (container, model, viewController) {
 			dishDisc = dishDisc + "<br><br>"
 			//dishDisc = dishDisc + "<button type= 'button' class= 'btn-default btn-block' id = 'backButton'> Go back to Select Dish </button>"
 			//	dishDisc = dishDisc + "<br><br><br><br>"
+
 			leftSide.html(dishDisc)
 			
 			//backButton = this.backButton = container.find("#backButton")
@@ -54,6 +56,7 @@ var RecipeView = function (container, model, viewController) {
 				totalpris = totalpris + (dish.Ingredients[i].MetricQuantity * model.getNumberOfGuests())
 			}
 			dishDisc = dishDisc + "<hr>"
+			dishDisc += "<button type = 'button' class= 'btn-default' id = 'confirmButton"+ dish.RecipeID +"'>  Confirm dish </button>"
 	
 			rightSideLower.html("<span class='inner right'>SEK : " + totalpris + "</span><br><br>")
 			
@@ -64,6 +67,9 @@ var RecipeView = function (container, model, viewController) {
 			dishDisc = dishDisc + dish.Instructions
 			
 			lower.html(dishDisc)
+
+
+			var dishController = new RecipeSelectController(model, viewController, dish);
 		}
 	}
 	

@@ -1,16 +1,20 @@
 var RecipeViewController = function(view, model ,viewController) {
  
 	view.backButton.click(function(){
-		console.log("I backButton-funk");
+		//console.log("I backButton-funk");
 		viewController.showSelectDish();
-		model.setSelectedDishId(undefined);
+		model.setSelectedDish(undefined);
 	});
 	
-	view.confirmButton.click(function(){
-		console.log("I confirm-funk");
+}
+
+var RecipeSelectController = function(model, viewController, dishObject) {
+
+	var recipe = "#confirmButton" + dishObject.RecipeID;
+
+	$(recipe).click(function(){
+		model.addDishToMenu(dishObject);
 		viewController.showSelectDish();
-		dishId = model.getSelectedDishId();
-		model.addDishToMenu(dishId);
-		model.setSelectedDishId(undefined);
+		model.setSelectedDish(undefined);
 	});
-	}
+}

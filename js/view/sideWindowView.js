@@ -21,29 +21,29 @@ var SideWindowView = function (container, model, viewController) {
 	//	var bool = true;
 
 		var menu = model.getFullMenu()
+		console.log("menu in create sidewindow", menu);
+		for (key in menu) {
+			console.log("key");
+			var dish = menu[key];
+			console.log("dish", dish);
+			console.log("menu", menu);
 
-		for (no in menu) {
-			var dish = model.getDish(menu[no]);
-
-			if (dish.id == model.getSelectedDishId()) {
-				string += "<div class='row current' id='" + dish.id + "'>"
-		//		bool = false;
+			if (dish.RecipeID == model.getSelectedDish()) {
+				string += "<div class='row current' id='" + dish.RecipeID + "'>"
 			}
 			else {
-				string += "<div class='row noncurrent' id='" + dish.id + "'>"
+				string += "<div class='row noncurrent' id='" + dish.RecipeID + "'>"
 			}
+
 			string += "<span class='left'>" + model.getNumberOfGuests() + "</span>"
-			string += dish.name
-			string += "<span class='right glyphicon glyphicon-trash' id='trash" + dish.id + "'></span>"
-			string += "<span class='right price'>"+ model.getDishGuestPrice(dish.id) + "</span>"
+			string += dish.Title
+			string += "<span class='right glyphicon glyphicon-trash' id='trash" + dish.RecipeID  + "'></span>"
+			string += "<span class='right price'>"+ model.getDishGuestPrice(dish.RecipeID) + "</span>"
 			string += "</div>"
 		}
 
-		//console.log("getSelectedDishId", model.getSelectedDishId());
-		//console.log("id in menu", model.selectedIdInMenu());
-		//console.log("bool: ", bool);
 
-		if (model.selectedIdInMenu() != true && model.getSelectedDishId() != undefined) {	// if not already in menu but not undefined
+		if (model.selectedIdInMenu() != true && model.getSelectedDish() != undefined) {	// if not already in menu but not undefined
 			string += "<div class='row current'>"
 			string += "<span class='left'>" + model.getNumberOfGuests() + "</span>"
 			string += "Pending"
@@ -51,7 +51,7 @@ var SideWindowView = function (container, model, viewController) {
 			string += "<span class='right price'>"+ model.getPendingPrice() + "</span>"
 			string += "</div>"
 		}
-		else if (model.selectedIdInMenu() == true || model.getSelectedDishId() == undefined) {	// if in menu or undefined
+		else if (model.selectedIdInMenu() == true || model.getSelectedDish() == undefined) {	// if in menu or undefined
 
 			string += "<div class='row noncurrent'>"
 			string += "Pending"
@@ -66,10 +66,10 @@ var SideWindowView = function (container, model, viewController) {
 
 		menuContainer.html(string);
 
-		for (no in menu) {
-			var dish = model.getDish(menu[no]);
-			var controller = new ChooseSelectedDishController(model, viewController, dish.id);
-			var trashController = new TrashDishController(model, viewController, dish.id);
+		for (object in menu) {
+			var dish = object;
+			var controller = new ChooseSelectedDishController(model, viewController, dish.RecipeID);
+			var trashController = new TrashDishController(model, viewController, dish.RecipeID);
 		}
 
 	}
