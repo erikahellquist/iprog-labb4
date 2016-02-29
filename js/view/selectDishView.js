@@ -7,6 +7,7 @@ var SelectDishView = function (container, model, viewController) {
   	// and/or ones that responed to interaction)
 
 	var allDishes = this.allDishes = container.find("#mainWindow");
+	
 	var searchBar = this.searchBar = container.find("#searchBar");
 
 	createSelectDishView = function(list) {

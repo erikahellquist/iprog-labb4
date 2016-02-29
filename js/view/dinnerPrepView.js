@@ -21,7 +21,7 @@ var DinnerPrepView = function (container, model) {
 
 		for (i = 0; i < list.length; i++) {
 			dish = list[i]
-			console.log("dish i dinnerprep: ", dish);
+			//console.log("dish i dinnerprep: ", dish);
 			dishList += "<div class='row' id='dishList'>"
 
 			dishList += "<div class='col-md-2'>"

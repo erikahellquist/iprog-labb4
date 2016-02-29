@@ -18,11 +18,7 @@ var RecipeView = function (container, model, viewController) {
 
 		dishId = model.getSelectedDish()
 		dishIdContainer.html(dishId);
-		
-		''
-		//dish  = model.getDish(dishId)
-		console.log("dish: ", dish);
-		console.log("dishID: ", dishId)
+
 
 		if (dish != undefined) {
 			dishNameContainer.html(dish.Title)
@@ -33,14 +29,10 @@ var RecipeView = function (container, model, viewController) {
 			dishDisc = dishDisc + "<br>"
 			dishDisc = dishDisc + dish.Description
 			dishDisc = dishDisc + "<br><br>"
-			//dishDisc = dishDisc + "<button type= 'button' class= 'btn-default btn-block' id = 'backButton'> Go back to Select Dish </button>"
-			//	dishDisc = dishDisc + "<br><br><br><br>"
 
 			leftSide.html(dishDisc)
-			
-			//backButton = this.backButton = container.find("#backButton")
-			
-			
+		
+
 			//Creating the html for the top right side of the screen
 			
 			dishDisc = "<h3> INGREDIENTS FOR " + model.getNumberOfGuests()+ " PEOPLE</h3>"
@@ -78,6 +70,7 @@ var RecipeView = function (container, model, viewController) {
 		if (args) {
 			for (i = 0; i < args.length; i++) {
 				if (args[i] == "getDish") {
+					model.getSelectedDish(args[i+1]);
 					createRecipeView(args[i+1]);
 					break;
 				}

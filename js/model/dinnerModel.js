@@ -1,14 +1,15 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
  
-	var APIKEY = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu"
+	//var APIKEY = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu"
+	var APIKEY = "r02x0R09O76JMCMc4nuM0PJXawUHpBUL"
 
 	//Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 	var numberOfGuests = 1;
 	var selectedDish = undefined;
 	var menu = [];
-	var pendingPrice = 0;
+	var pendingPrice = 50;
 
 	var searchText = undefined;
 	var searchType = undefined;
@@ -25,7 +26,6 @@ var DinnerModel = function() {
 		for (o = 0; o < this._observers.length; o++) {
 			this._observers[o].update(args);
 		}
-		//console.log("notify");
 	}
 
 	this.setSearchText = function(text) {
@@ -72,37 +72,40 @@ var DinnerModel = function() {
 
 	this.setSelectedDish = function(object) {
 		selectedDish = object;
-		if (this.selectedIdInMenu() == false) {
-			pendingPrice = 10;
-			//pendingPrice = object.; /* * numberOfGuests;*/
+
+		if (this.selectedDishInMenu() == false) {
+			//pendingPrice = this.getDishGuestPrice(object);
+			pendingPrice = 30;
 		}
 		else {
-			pendingPrice = 0;
+			pendingPrice = 10;
 		}
 
 		if (object == undefined) {
-			pendingPrice = 0;
+			pendingPrice = 20;
 		}
+
 		this.notifyObservers();
 	}
 
-	this.selectedIdInMenu = function() {
+	this.selectedDishInMenu = function() {
 
 		if (selectedDish == undefined) {
 			return false;
 		}
 
 		for (d in menu) {
-			if (menu[d] == selectedDish) {
+			if (menu[d].RecipeID == selectedDish.RecipeID) {
 				return true;
 			} 
 		}
 		return false;
 	}
 
-	this.idInMenu = function(id) {
-		for (d in menu) {
-			if (menu[d] == selectedDish) {
+	this.idInMenu = function(object) {
+		console.log("hejhej in idInMenu");
+		for (no in menu) {
+			if (menu[no].RecipeID == object.RecipeID) {
 				return true;
 			} 
 		}
@@ -110,7 +113,6 @@ var DinnerModel = function() {
 	}
 
 	this.getPendingPrice = function() {
-		/*return pendingPrice;*/
 		if (selectedDish == undefined) {
 			return 0;
 		}
@@ -134,7 +136,7 @@ var DinnerModel = function() {
 		for (i in menu) {
 			price = price + this.getDishGuestPrice(menu[i]);
 		}
-		if (this.selectedIdInMenu() == false && selectedDish != undefined) {
+		if (this.selectedDishInMenu() == false && selectedDish != undefined) {
 			price += this.getDishGuestPrice(selectedDish);
 		}
 		
@@ -174,7 +176,7 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(object) {
 		
-		if (this.idInMenu(object.RecipeID) == false) {
+		if (this.idInMenu(object) == false) {
 			menu.push(object);
 		}
 		console.log("add menu", menu);
@@ -186,39 +188,14 @@ var DinnerModel = function() {
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(object) {
-		for (obj in menu) {
-			if (object.RecipeID == obj.RecipeID) {
-				menu.splice(obj, 1);
+		for (index in menu) {
+			if (object.RecipeID == menu[index].RecipeID) {
+				menu.splice(index, 1);
 			}
 		}
 		this.notifyObservers();
 	}
 
-	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
-	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
-	//if you don't pass any filter all the dishes will be returned
-	/*this.getAllDishes = function (type,filter) {
-	  return $(dishes).filter(function(index,dish) {
-		var found = true;
-		if(filter){
-			found = false;
-			$.each(dish.ingredients,function(index,ingredient) {
-				if(ingredient.name.indexOf(filter)!=-1) {
-					found = true;
-				}
-			});
-			if(dish.name.indexOf(filter) != -1)
-			{
-				found = true;
-			}
-		}
-		if (type == "all") {
-			return found
-		}
-
-	  	return dish.type == type && found;
-	  });	
-	}*/
 
 
 	this.getAllDishes = function(type, filter) {
@@ -275,7 +252,7 @@ var DinnerModel = function() {
 			headers: {"Accept":"application/json"},
 
 			success: function(data) { 
-         		console.log("All data1: ", data);
+         		//console.log("All data1: ", data);
          		this.notifyObservers(["getDish", data]);				// som i labblydelsen
          		//console.log("mina resultat: ", data.Results);
          		//return data;
@@ -289,71 +266,33 @@ var DinnerModel = function() {
 
 	}
 
-	/*
 
-	//function that returns a dish of specific ID
-	this.getDish = function (id) {
-	  for(key in dishes){
-			if(dishes[key].id == id) {
-				return dishes[key];
-			}
-		}
-	}*/
 
 	//function that returns a price of specific dish with ID
-	this.getDishPrice = function (id) {
+	this.getDishPrice = function (object) {
 		var price = 0;
-	  	for(key in dishes){
-			if(dishes[key].id == id) {
-				for (no in dishes[key].ingredients) {
-					price += dishes[key].ingredients[no].quantity * dishes[key].ingredients[no].price;
-				}
-				return price;
-			}
+	  //	console.log("o: ", object)
+	  	//console.log("o.Ingr: ", object.Ingredients);
+
+	  	for (key in object.Ingredients) {
+
+	  		price += object.Ingredients[key].MetricQuantity
+	  	}
+	  //console.log("price: ", price);
+	  	return price;
+	}
+
+
+	this.getDishGuestPrice = function (object) {
+		if (object != undefined) {
+			var price = this.getDishPrice(object);
+			price = price * numberOfGuests;
+			//console.log("guestdishprice: ", price);
+			return price;
 		}
+		return 0;
 	}
 
-
-	this.getDishGuestPrice = function (id) {
-		var price = this.getDishPrice(id);
-		price = price * numberOfGuests;
-		return price;
-	}
-
-
-	this.getDishes = function() {
-		return dishes;
-	}
-
-	this.getMainDishes = function() {
-		var list = [];
-		for(key in dishes){
-			if (dishes[key].type == "main dish") {
-				list.push(dishes[key]);
-			}
-		}
-		return list
-	}
-
-	this.getStarters = function() {
-		var list = [];
-		for(key in dishes){
-			if (dishes[key].type == "starter") {
-				list.push(dishes[key]);
-			}
-		}
-		return list
-	}
-
-	this.getDesserts = function() {
-		var list = [];
-		for(key in dishes){
-			if (dishes[key].type == "dessert") {
-				list.push(dishes[key]);
-			}
-		}
-		return list
-	}
 
 
 	// the dishes variable contains an array of all the 

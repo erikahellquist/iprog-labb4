@@ -18,15 +18,12 @@ var SideWindowView = function (container, model, viewController) {
 		numberOfGuests.html(model.getNumberOfGuests());
 
 		var string = "<br>";
-	//	var bool = true;
 
 		var menu = model.getFullMenu()
-		console.log("menu in create sidewindow", menu);
+		//console.log("menu in create sidewindow", menu);
 		for (key in menu) {
-			console.log("key");
+
 			var dish = menu[key];
-			console.log("dish", dish);
-			console.log("menu", menu);
 
 			if (dish.RecipeID == model.getSelectedDish()) {
 				string += "<div class='row current' id='" + dish.RecipeID + "'>"
@@ -38,28 +35,27 @@ var SideWindowView = function (container, model, viewController) {
 			string += "<span class='left'>" + model.getNumberOfGuests() + "</span>"
 			string += dish.Title
 			string += "<span class='right glyphicon glyphicon-trash' id='trash" + dish.RecipeID  + "'></span>"
-			string += "<span class='right price'>"+ model.getDishGuestPrice(dish.RecipeID) + "</span>"
+			string += "<span class='right price'>"+ model.getDishGuestPrice(dish) + "</span>"
 			string += "</div>"
 		}
 
 
-		if (model.selectedIdInMenu() != true && model.getSelectedDish() != undefined) {	// if not already in menu but not undefined
+		if (model.selectedDishInMenu() != true && model.getSelectedDish() != undefined) {	// if not already in menu but not undefined
 			string += "<div class='row current'>"
 			string += "<span class='left'>" + model.getNumberOfGuests() + "</span>"
-			string += "Pending"
+			string += "Pending1"
 
 			string += "<span class='right price'>"+ model.getPendingPrice() + "</span>"
 			string += "</div>"
 		}
-		else if (model.selectedIdInMenu() == true || model.getSelectedDish() == undefined) {	// if in menu or undefined
+		else if (model.selectedDishInMenu() == true || model.getSelectedDish() == undefined) {	// if in menu or undefined
 
 			string += "<div class='row noncurrent'>"
-			string += "Pending"
+			string += "Pending2"
 			string += "<span class='right price'>"+ model.getPendingPrice() + "</span>"
 			string += "</div>"
 		}
  
-
 
 		string += "<hr><span class='right price'>SEK " + model.getTotalMenuPrice() + "</span><br><br>"
 
@@ -71,14 +67,13 @@ var SideWindowView = function (container, model, viewController) {
 			var controller = new ChooseSelectedDishController(model, viewController, dish.RecipeID);
 			var trashController = new TrashDishController(model, viewController, dish.RecipeID);
 		}
-
 	}
 
 
 
 	this.update = function() {
 		createSideWindow();
-		//console.log("update sidewindow");
+
 	}
 
 	createSideWindow();		// Initialize the view

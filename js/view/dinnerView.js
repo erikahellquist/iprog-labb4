@@ -21,20 +21,20 @@ var DinnerView = function (container, model) {
 
 
 		for (i = 0; i < list.length; i++) {
-			console.log("dish.url")
+
 			dish = list[i]
-			dishList = dishList + "<div class='col-md-3 dish'><center>"
-			dishList = dishList + "<img src='" + dish.ImageURL + "'></img>"
+			dishList += "<div class='col-md-3 dish'><center>"
+			dishList += "<img src='" + dish.ImageURL + "'></img>"
 			dishList += "<br><span class='dinnertitle'>"
-			dishList = dishList + dish.Title
+			dishList +=  dish.Title
 			dishList += "</span>"
-			dishList = dishList + "<span class='price'>"
-			dishList = dishList + model.getDishGuestPrice(dish.RecipeID) + " SEK"
-			dishList = dishList + "</span><br></center></div>"
+			dishList += "<span class='price'>"
+			dishList += model.getDishGuestPrice(dish) + " SEK"
+			dishList += "</span><br></center></div>"
 		}
 
 
-		dishList = dishList + "<div class='col-md-3 verticalLine' id='dinnerPrice'><span class='lower'>"
+		dishList += "<div class='col-md-3 verticalLine' id='dinnerPrice'><span class='lower'>"
 		dishList += "<b>Total:</b><br><span class='price'>" + model.getConfirmedMenuPrice() +" SEK</span></span>" + "</div>"
 
 
