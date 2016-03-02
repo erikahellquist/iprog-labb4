@@ -25,8 +25,15 @@ var SideWindowView = function (container, model, viewController) {
 
 			var dish = menu[key];
 
-			if (dish.RecipeID == model.getSelectedDish()) {
+		
+			
+			if (model.getSelectedDish() != undefined) {
+				if (dish.RecipeID == (model.getSelectedDish()).RecipeID) {
 				string += "<div class='row current' id='" + dish.RecipeID + "'>"
+				}
+				else {
+				string += "<div class='row noncurrent' id='" + dish.RecipeID + "'>"
+				}
 			}
 			else {
 				string += "<div class='row noncurrent' id='" + dish.RecipeID + "'>"
@@ -71,7 +78,8 @@ var SideWindowView = function (container, model, viewController) {
 
 
 
-	this.update = function() {
+	this.update = function(args) {
+		console.log("In update sideView. args: ", args);
 		createSideWindow();
 
 	}
@@ -79,6 +87,21 @@ var SideWindowView = function (container, model, viewController) {
 	createSideWindow();		// Initialize the view
 
 }
+
+
+/*
+copy från sideWC:
+	model.setSelectedDish(object);		// inte tillräckligt snabb
+	model.getDish(dishObject.RecipeID);
+	viewController.showRecipeView();
+
+copy från seleDC:
+	viewController.showRecipeView();
+		model.getDish(dishObject.RecipeID);
+		model.setSelectedDish(dishObject);	
+
+*/
+
 
 
  

@@ -21,6 +21,7 @@ var ChooseSelectedDishController = function(model, viewController, object) {
 
 	$(dish).click(function(){
 		model.setSelectedDish(object);		// inte tillräckligt snabb
+		model.getDish(object.RecipeID);
 		viewController.showRecipeView();
 	});
 }

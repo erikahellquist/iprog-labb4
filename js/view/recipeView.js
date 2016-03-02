@@ -16,16 +16,10 @@ var RecipeView = function (container, model, viewController) {
 
 		numberOfGuests.html(model.getNumberOfGuests());
 
-		//dishId = model.getSelectedDish()
-		//dishIdContainer.html(dishId);
-		console.log("dish 1", dish);
+
 		if (dish == undefined) {
 			dish = model.getSelectedDish();
 		}
-		else {
-			model.setSelectedDish(dish);
-		}
-		console.log("dish 2", dish);
 
 
 		if (dish != undefined) {
@@ -46,15 +40,17 @@ var RecipeView = function (container, model, viewController) {
 			dishDisc = "<h3> INGREDIENTS FOR " + model.getNumberOfGuests()+ " PEOPLE</h3>"
 			dishDisc = dishDisc + "<hr>"
 			totalpris = 0
-			for(i = 0; i < dish.Ingredients.length; i++)
-			{
-				dishDisc = dishDisc +"	" +  dish.Ingredients[i].MetricQuantity * model.getNumberOfGuests()
-				dishDisc = dishDisc +"	" +  dish.Ingredients[i].MetricUnit
-				dishDisc = dishDisc +"	" +  dish.Ingredients[i].Name
-				dishDisc = dishDisc +"<span class='right'>SEK " +  dish.Ingredients[i].MetricQuantity * model.getNumberOfGuests()
-				dishDisc = dishDisc + "</span><br>"
-				totalpris = totalpris + (dish.Ingredients[i].MetricQuantity * model.getNumberOfGuests())
-			}
+			/*if (dish.Ingredients != undefined) {*/
+				for(i = 0; i < dish.Ingredients.length; i++)
+				{
+					dishDisc = dishDisc +"	" +  dish.Ingredients[i].MetricQuantity * model.getNumberOfGuests()
+					dishDisc = dishDisc +"	" +  dish.Ingredients[i].MetricUnit
+					dishDisc = dishDisc +"	" +  dish.Ingredients[i].Name
+					dishDisc = dishDisc +"<span class='right'>SEK " +  dish.Ingredients[i].MetricQuantity * model.getNumberOfGuests()
+					dishDisc = dishDisc + "</span><br>"
+					totalpris = totalpris + (dish.Ingredients[i].MetricQuantity * model.getNumberOfGuests())
+				}
+		/*	}*/
 			dishDisc = dishDisc + "<hr>"
 			dishDisc += "<button type = 'button' class= 'btn-default' id = 'confirmButton"+ dish.RecipeID +"'>  Confirm dish </button>"
 	
@@ -77,16 +73,16 @@ var RecipeView = function (container, model, viewController) {
 		console.log("har vi args i recipeView?", args);
 		if (args) {
 			for (i = 0; i < args.length; i++) {
-				console.log("varv: ", args[i]);
 				if (args[i] == "getDish") {
-					model.getSelectedDish(args[i+1]);
 					createRecipeView(args[i+1]);
-					console.log("update with getDish")
 					break;
 				}
 				else if (args[i] == "removeDish" || args[i] == "changeGuests") {
-					console.log("update!")
 					createRecipeView();
+					break;
+				}
+				else if (args[i] == "setSelectedDish") {
+					createRecipeView(args[i+1]);
 					break;
 				}
 			}

@@ -78,19 +78,19 @@ var DinnerModel = function() {
 	this.setSelectedDish = function(object) {
 		selectedDish = object;
 
-		if (this.selectedDishInMenu() == false) {
+	/*	if (this.selectedDishInMenu() == false) {
 			//pendingPrice = this.getDishGuestPrice(object);
 			pendingPrice = 30;
 		}
 		else {
 			pendingPrice = 10;
-		}
+		}*/
 
-		if (object == undefined) {
+		/*if (object == undefined) {
 			pendingPrice = 20;
-		}
+		}*/
 
-		this.notifyObservers();
+		this.notifyObservers(["setSelectedDish", object]);
 	}
 
 	this.selectedDishInMenu = function() {
@@ -108,7 +108,6 @@ var DinnerModel = function() {
 	}
 
 	this.idInMenu = function(object) {
-		console.log("hejhej in idInMenu");
 		for (no in menu) {
 			if (menu[no].RecipeID == object.RecipeID) {
 				return true;
@@ -118,7 +117,10 @@ var DinnerModel = function() {
 	}
 
 	this.getPendingPrice = function() {
-		if (selectedDish == undefined) {
+
+		console.log("SelectedDish är..:", selectedDish)
+		console.log("in Pendingprice: ", this.selectedDishInMenu());
+		if (this.selectedDishInMenu() == true) {
 			return 0;
 		}
 		return this.getDishGuestPrice(selectedDish);

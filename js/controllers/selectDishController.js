@@ -9,12 +9,8 @@ var GoToRecipeController = function(model, viewController, dishObject) {
 	var dish = "#goTo" + dishObject.RecipeID;
 
 	$(dish).click(function(){
-		console.log("SsSsssssssssssssssssss", dishObject);
 		viewController.showRecipeView();
 		model.getDish(dishObject.RecipeID);
-		//model.setSelectedDish(dishObject);			// ska spara objekt med mer info egentligen
-		
-
 	});
 }
 
