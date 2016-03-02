@@ -16,11 +16,12 @@ var RecipeView = function (container, model, viewController) {
 
 		numberOfGuests.html(model.getNumberOfGuests());
 
-
 		if (dish == undefined) {
 			dish = model.getSelectedDish();
 		}
-
+		else if (model.getSelectedDish() == undefined) {
+			model.setSelectedDish(dish)
+		}
 
 		if (dish != undefined) {
 			dishNameContainer.html(dish.Title)
@@ -40,17 +41,20 @@ var RecipeView = function (container, model, viewController) {
 			dishDisc = "<h3> INGREDIENTS FOR " + model.getNumberOfGuests()+ " PEOPLE</h3>"
 			dishDisc = dishDisc + "<hr>"
 			totalpris = 0
-			/*if (dish.Ingredients != undefined) {*/
+
+			if (dish.Ingredients != undefined) {
+				console.log("ingredients: ", dish.Ingredients);
 				for(i = 0; i < dish.Ingredients.length; i++)
 				{
-					dishDisc = dishDisc +"	" +  dish.Ingredients[i].MetricQuantity * model.getNumberOfGuests()
-					dishDisc = dishDisc +"	" +  dish.Ingredients[i].MetricUnit
-					dishDisc = dishDisc +"	" +  dish.Ingredients[i].Name
-					dishDisc = dishDisc +"<span class='right'>SEK " +  dish.Ingredients[i].MetricQuantity * model.getNumberOfGuests()
-					dishDisc = dishDisc + "</span><br>"
-					totalpris = totalpris + (dish.Ingredients[i].MetricQuantity * model.getNumberOfGuests())
+						dishDisc = dishDisc +"	" +  dish.Ingredients[i].MetricQuantity * model.getNumberOfGuests()
+						dishDisc = dishDisc +"	" +  dish.Ingredients[i].MetricUnit
+						dishDisc = dishDisc +"	" +  dish.Ingredients[i].Name
+						dishDisc = dishDisc +"<span class='right'>SEK " +  dish.Ingredients[i].MetricQuantity * model.getNumberOfGuests()
+						dishDisc = dishDisc + "</span><br>"
+						totalpris = totalpris + (dish.Ingredients[i].MetricQuantity * model.getNumberOfGuests())
 				}
-		/*	}*/
+			}
+
 			dishDisc = dishDisc + "<hr>"
 			dishDisc += "<button type = 'button' class= 'btn-default' id = 'confirmButton"+ dish.RecipeID +"'>  Confirm dish </button>"
 	

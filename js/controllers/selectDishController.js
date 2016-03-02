@@ -9,8 +9,8 @@ var GoToRecipeController = function(model, viewController, dishObject) {
 	var dish = "#goTo" + dishObject.RecipeID;
 
 	$(dish).click(function(){
-		viewController.showRecipeView();
 		model.getDish(dishObject.RecipeID);
+		viewController.showRecipeView();
 	});
 }
 

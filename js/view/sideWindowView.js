@@ -50,7 +50,7 @@ var SideWindowView = function (container, model, viewController) {
 		if (model.selectedDishInMenu() != true && model.getSelectedDish() != undefined) {	// if not already in menu but not undefined
 			string += "<div class='row current'>"
 			string += "<span class='left'>" + model.getNumberOfGuests() + "</span>"
-			string += "Pending1"
+			string += "Pending"
 
 			string += "<span class='right price'>"+ model.getPendingPrice() + "</span>"
 			string += "</div>"
@@ -58,7 +58,7 @@ var SideWindowView = function (container, model, viewController) {
 		else if (model.selectedDishInMenu() == true || model.getSelectedDish() == undefined) {	// if in menu or undefined
 
 			string += "<div class='row noncurrent'>"
-			string += "Pending2"
+			string += "Pending"
 			string += "<span class='right price'>"+ model.getPendingPrice() + "</span>"
 			string += "</div>"
 		}

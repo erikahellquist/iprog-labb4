@@ -25,9 +25,6 @@ var SelectDishView = function (container, model, viewController) {
 		var searchText = $('#searchField').val();
 
 
-		//var list = model.getAllDishes(value, searchText);
-		//console.log("list = ", list);
-
 		if (list != undefined) {
 
 			for (i = 0; i < list.length; i++) {

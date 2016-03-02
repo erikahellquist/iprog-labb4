@@ -2,8 +2,8 @@
 var DinnerModel = function() {
  
 	//var APIKEY = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu"
-	var APIKEY = "XKEdN82lQn8x6Y5jm3K1ZX8L895WUoXN"
-	//var APIKEY = "r02x0R09O76JMCMc4nuM0PJXawUHpBUL"
+	//var APIKEY = "XKEdN82lQn8x6Y5jm3K1ZX8L895WUoXN"
+	var APIKEY = "r02x0R09O76JMCMc4nuM0PJXawUHpBUL"
 	//var APIKEY = "H9n1zb6es492fj87OxDtZM9s5sb29rW3"
 	//var APIKEY = "1hg3g4Dkwr6pSt22n00EfS01rz568IR6"
 	//var APIKEY = "8vtk7KykflO5IzB96kb0mpot0sU40096"
@@ -78,18 +78,6 @@ var DinnerModel = function() {
 	this.setSelectedDish = function(object) {
 		selectedDish = object;
 
-	/*	if (this.selectedDishInMenu() == false) {
-			//pendingPrice = this.getDishGuestPrice(object);
-			pendingPrice = 30;
-		}
-		else {
-			pendingPrice = 10;
-		}*/
-
-		/*if (object == undefined) {
-			pendingPrice = 20;
-		}*/
-
 		this.notifyObservers(["setSelectedDish", object]);
 	}
 
@@ -117,9 +105,6 @@ var DinnerModel = function() {
 	}
 
 	this.getPendingPrice = function() {
-
-		console.log("SelectedDish är..:", selectedDish)
-		console.log("in Pendingprice: ", this.selectedDishInMenu());
 		if (this.selectedDishInMenu() == true) {
 			return 0;
 		}
@@ -283,7 +268,6 @@ var DinnerModel = function() {
 	  	//console.log("o.Ingr: ", object.Ingredients);
 
 	  	for (key in object.Ingredients) {
-
 	  		price += object.Ingredients[key].MetricQuantity
 	  	}
 	  //console.log("price: ", price);
