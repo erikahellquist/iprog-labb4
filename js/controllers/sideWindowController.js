@@ -15,22 +15,22 @@ var SideWindowController = function(view, model, viewController) {
 
 }
 
-var ChooseSelectedDishController = function(model, viewController, id) {
+var ChooseSelectedDishController = function(model, viewController, object) {
 
-	var dish = "#" + id;
+	var dish = "#" + object.RecipeID;
 
 	$(dish).click(function(){
-		model.setSelectedDishId(id);
-		viewController.showRecipeView(id);
+		model.setSelectedDish(object);		// inte tillräckligt snabb
+		viewController.showRecipeView();
 	});
 }
 
-var TrashDishController = function(model, viewController, id) {
+var TrashDishController = function(model, viewController, object) {
 
-	var trashDish = "#trash" + id;
+	var trashDish = "#trash" + object.RecipeID;
 
 	$(trashDish).click(function(){
-		model.removeDishFromMenu(id);
+		model.removeDishFromMenu(object);
 	});
 }
 

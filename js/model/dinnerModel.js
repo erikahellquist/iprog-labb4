@@ -2,10 +2,12 @@
 var DinnerModel = function() {
  
 	//var APIKEY = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu"
+	var APIKEY = "XKEdN82lQn8x6Y5jm3K1ZX8L895WUoXN"
 	//var APIKEY = "r02x0R09O76JMCMc4nuM0PJXawUHpBUL"
 	//var APIKEY = "H9n1zb6es492fj87OxDtZM9s5sb29rW3"
 	//var APIKEY = "1hg3g4Dkwr6pSt22n00EfS01rz568IR6"
 	//var APIKEY = "8vtk7KykflO5IzB96kb0mpot0sU40096"
+	//var APIKEY = "3stL5NVP4s6ZkmK5gt4dci8a4zOQRpD4"
 
 	//Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
@@ -62,7 +64,7 @@ var DinnerModel = function() {
 		if (num >= 0) {
 			numberOfGuests = num;
 		}
-		this.notifyObservers();
+		this.notifyObservers(["changeGuests"]);
 	}
 
 	this.getNumberOfGuests = function() {
@@ -196,7 +198,7 @@ var DinnerModel = function() {
 				menu.splice(index, 1);
 			}
 		}
-		this.notifyObservers();
+		this.notifyObservers(["removeDish"]);
 	}
 
 

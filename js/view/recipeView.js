@@ -16,8 +16,16 @@ var RecipeView = function (container, model, viewController) {
 
 		numberOfGuests.html(model.getNumberOfGuests());
 
-		dishId = model.getSelectedDish()
-		dishIdContainer.html(dishId);
+		//dishId = model.getSelectedDish()
+		//dishIdContainer.html(dishId);
+		console.log("dish 1", dish);
+		if (dish == undefined) {
+			dish = model.getSelectedDish();
+		}
+		else {
+			model.setSelectedDish(dish);
+		}
+		console.log("dish 2", dish);
 
 
 		if (dish != undefined) {
@@ -66,12 +74,19 @@ var RecipeView = function (container, model, viewController) {
 	}
 	
 	this.update = function(args) {
-		console.log("har vi args?", args);
+		console.log("har vi args i recipeView?", args);
 		if (args) {
 			for (i = 0; i < args.length; i++) {
+				console.log("varv: ", args[i]);
 				if (args[i] == "getDish") {
 					model.getSelectedDish(args[i+1]);
 					createRecipeView(args[i+1]);
+					console.log("update with getDish")
+					break;
+				}
+				else if (args[i] == "removeDish" || args[i] == "changeGuests") {
+					console.log("update!")
+					createRecipeView();
 					break;
 				}
 			}

@@ -62,10 +62,10 @@ var SideWindowView = function (container, model, viewController) {
 
 		menuContainer.html(string);
 
-		for (object in menu) {
-			var dish = object;
-			var controller = new ChooseSelectedDishController(model, viewController, dish.RecipeID);
-			var trashController = new TrashDishController(model, viewController, dish.RecipeID);
+		for (key in menu) {
+			var dish = menu[key];
+			var controller = new ChooseSelectedDishController(model, viewController, dish);
+			var trashController = new TrashDishController(model, viewController, dish);
 		}
 	}
 
