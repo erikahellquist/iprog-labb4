@@ -2,7 +2,10 @@
 var DinnerModel = function() {
  
 	//var APIKEY = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu"
-	var APIKEY = "r02x0R09O76JMCMc4nuM0PJXawUHpBUL"
+	//var APIKEY = "r02x0R09O76JMCMc4nuM0PJXawUHpBUL"
+	//var APIKEY = "H9n1zb6es492fj87OxDtZM9s5sb29rW3"
+	//var APIKEY = "1hg3g4Dkwr6pSt22n00EfS01rz568IR6"
+	//var APIKEY = "8vtk7KykflO5IzB96kb0mpot0sU40096"
 
 	//Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
@@ -212,7 +215,7 @@ var DinnerModel = function() {
 			urlString += "&any_kw=" + searchType;
 		}
 
-		//console.log(urlString);
+		console.log(urlString);
 		$.ajax({
 			type: 'GET', 
 			url: urlString,
@@ -221,7 +224,8 @@ var DinnerModel = function() {
 			headers: {"Accept":"application/json"},
 
 			success: function(data) { 
-         	//	console.log("All data0: ", data);
+				console.log(data);
+         		console.log("All data0: ", data.Results);
 
          		this.notifyObservers(["allDishes", data.Results]);				// som i labblydelsen
          		//console.log("mina resultat: ", data.Results);
@@ -252,7 +256,7 @@ var DinnerModel = function() {
 			headers: {"Accept":"application/json"},
 
 			success: function(data) { 
-         		//console.log("All data1: ", data);
+         		console.log("All data1: ", data);
          		this.notifyObservers(["getDish", data]);				// som i labblydelsen
          		//console.log("mina resultat: ", data.Results);
          		//return data;

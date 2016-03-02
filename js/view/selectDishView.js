@@ -109,9 +109,9 @@ var SelectDishView = function (container, model, viewController) {
 			}
 		}
 	}
-	
-	createSelectDishView(); // Initialization     
 	model.getAllDishes();
+	createSelectDishView(); // Initialization     
+	
                            
 
 }
