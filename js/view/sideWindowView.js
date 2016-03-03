@@ -79,7 +79,7 @@ var SideWindowView = function (container, model, viewController) {
 
 
 	this.update = function(args) {
-		console.log("In update sideView. args: ", args);
+		//console.log("In update sideView. args: ", args);
 		createSideWindow();
 
 	}

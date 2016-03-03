@@ -10,7 +10,7 @@ var SelectDishView = function (container, model, viewController) {
 	
 	var searchBar = this.searchBar = container.find("#searchBar");
 
-	createSelectDishView = function(list) {
+	createSelectDishView = function(list, error) {
 
 		createSearchView();
 
@@ -25,7 +25,10 @@ var SelectDishView = function (container, model, viewController) {
 		var searchText = $('#searchField').val();
 
 
-		if (list != undefined) {
+		if (list == "error") {
+			allDishes.html("There was an error loading the recipes.");
+		}
+		else if (list != undefined) {
 
 			for (i = 0; i < list.length; i++) {
 				dish = list[i];
@@ -48,7 +51,7 @@ var SelectDishView = function (container, model, viewController) {
 			}
 		}
 		else {
-			allDishes.html("Error");
+			allDishes.html("Loading...");
 		}
 
 	}

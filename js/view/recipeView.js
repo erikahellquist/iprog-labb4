@@ -23,7 +23,10 @@ var RecipeView = function (container, model, viewController) {
 			model.setSelectedDish(dish)
 		}
 
-		if (dish != undefined) {
+		if (dish == "error") {
+			leftSide.html("There was an error loading the recipe.<br><br>")
+		}
+		else if (dish != undefined) {
 			dishNameContainer.html(dish.Title)
 			
 			
@@ -43,7 +46,7 @@ var RecipeView = function (container, model, viewController) {
 			totalpris = 0
 
 			if (dish.Ingredients != undefined) {
-				console.log("ingredients: ", dish.Ingredients);
+				//console.log("ingredients: ", dish.Ingredients);
 				for(i = 0; i < dish.Ingredients.length; i++)
 				{
 						dishDisc = dishDisc +"	" +  dish.Ingredients[i].MetricQuantity * model.getNumberOfGuests()
@@ -71,10 +74,13 @@ var RecipeView = function (container, model, viewController) {
 
 			var dishController = new RecipeSelectController(model, viewController, dish);
 		}
+		else {
+			leftSide.html("Loading...<br><br>")
+		}
 	}
 	
 	this.update = function(args) {
-		console.log("har vi args i recipeView?", args);
+		//console.log("har vi args i recipeView?", args);
 		if (args) {
 			for (i = 0; i < args.length; i++) {
 				if (args[i] == "getDish") {

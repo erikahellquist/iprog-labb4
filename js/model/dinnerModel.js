@@ -3,11 +3,11 @@ var DinnerModel = function() {
  
 	//var APIKEY = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu"
 	//var APIKEY = "XKEdN82lQn8x6Y5jm3K1ZX8L895WUoXN"
-	var APIKEY = "r02x0R09O76JMCMc4nuM0PJXawUHpBUL"
+	//var APIKEY = "r02x0R09O76JMCMc4nuM0PJXawUHpBUL"
 	//var APIKEY = "H9n1zb6es492fj87OxDtZM9s5sb29rW3"
 	//var APIKEY = "1hg3g4Dkwr6pSt22n00EfS01rz568IR6"
 	//var APIKEY = "8vtk7KykflO5IzB96kb0mpot0sU40096"
-	//var APIKEY = "3stL5NVP4s6ZkmK5gt4dci8a4zOQRpD4"
+	var APIKEY = "3stL5NVP4s6ZkmK5gt4dci8a4zOQRpD4"
 
 	//Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
@@ -213,7 +213,7 @@ var DinnerModel = function() {
 			headers: {"Accept":"application/json"},
 
 			success: function(data) { 
-				console.log(data);
+				console.log("min data", data);
          		console.log("All data0: ", data.Results);
 
          		this.notifyObservers(["allDishes", data.Results]);				// som i labblydelsen
@@ -222,7 +222,9 @@ var DinnerModel = function() {
 			}.bind(this),		// so that calling this.notifyObservers works
 
   			error: function(xhr,status,error) {
-  			    console.error(error); 
+  			    console.error("error in alldishes");
+
+  			    this.notifyObservers(["allDishes", "error"]);
  	 		}.bind(this), 
 
  		})
@@ -237,7 +239,6 @@ var DinnerModel = function() {
 
 		var urlString = "http://api.bigoven.com/recipe/"+ id +"?api_key=" + APIKEY;
 
-		//console.log(urlString);
 		$.ajax({
 			type: 'GET', 
 			url: urlString,
@@ -248,12 +249,12 @@ var DinnerModel = function() {
          		console.log("All data1: ", data);
          		this.notifyObservers(["getDish", data]);				// som i labblydelsen
          		//console.log("mina resultat: ", data.Results);
-         		//return data;
 
 			}.bind(this),		// so that calling this.notifyObservers works
 
   			error: function(xhr,status,error) {
-  			    console.error(error); 
+  			    console.error("error in getdish"); 
+  			    this.notifyObservers(["getDish", "error"]);
  	 		}.bind(this), 
  		})
 
